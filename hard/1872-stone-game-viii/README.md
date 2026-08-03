@@ -64,30 +64,36 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-03T15:02:23.736Z  
+**Runtime:** 128 ms (beats 12.00%)  
+**Memory:** 101.4 MB (beats 24.00%)  
+**Submitted:** 2026-08-03T15:02:29.745Z  
 
 ```cpp
 class Solution {
 public:
-    vector<vector<int>>dp;
+    vector<int>dp;
     int n;
-    int solve(int i,int j,vector<int>&piles){
-        if(i==j)return dp[i][i]=piles[i];
-        if(i>j)return 0;
+    vector<int>prefix;
+    int solve(int i){
+        if(i == n-1) return prefix[n-1];
 
-        if(dp[i][j]!=-1)return dp[i][j];
+        if(dp[i]!=INT_MIN)return dp[i];
 
-        int first=piles[i]-solve(i+1,j,piles);
-        int last=piles[j]-solve(i,j-1,piles);
+        int take=prefix[i]-solve(i+1);
+        int skip=solve(i+1);
 
-        return dp[i][j]=max(first,last);
+        return dp[i]=max(take,skip);
     }
-    bool stoneGame(vector<int>& piles) {
-        n=piles.size();
-        dp.assign(n,vector<int>(n,-1));
-        return solve(0,n-1,piles)>=0;
+    int stoneGameVIII(vector<int>& stones) {
+        n=stones.size();
+        dp.assign(n,INT_MIN);
+        prefix.assign(n,0);
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum+=stones[i];
+            prefix[i]=sum;
+        }
+        return solve(1);
     }
 };
 ```
