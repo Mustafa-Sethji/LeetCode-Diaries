@@ -43,35 +43,34 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-08-04T10:23:46.919Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-08-04T10:25:41.123Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    vector<vector<int>>dp;
-    int n,m;
-    int solve(int i,int j){
-    int numDistinct(string s, string t) {
-        int m=s.size();
-        int n=t.size();
-        dp.assign(m,vector<int>(n,-1));
-        return solve(m-1,n-1);
-    string s1;
-    string s2;
-        s1=s;
-        s2=t;
-        if(j<0)return 1;
-    }
-    }
-        if(i<0)return 0;
+    vector<vector<int>>dp;
+    int n,m;
+    string s1;
+    string s2;
+    int solve(int i,int j){
+        if(j<0)return 1;
+        if(i<0)return 0;
 
-        if(dp[i][j]!=-1)return dp[i][j];
+        if(dp[i][j]!=-1)return dp[i][j];
 
-        if(s1[i]==s2[j])return solve(i-1,j)+solve(i-1,j-1);
-        return solve(i-1,j);
+        if(s1[i]==s2[j])return solve(i-1,j)+solve(i-1,j-1);
+        return solve(i-1,j);
+    }
+    int numDistinct(string s, string t) {
+        int m=s.size();
+        int n=t.size();
+        dp.assign(m,vector<int>(n,-1));
+        s1=s;
+        s2=t;
+        return solve(m-1,n-1);
+    }
 };
-
 ```
 
 ---
