@@ -42,9 +42,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-08-04T10:25:41.123Z  
+**Runtime:** 33 ms (beats 39.19%)  
+**Memory:** 27 MB (beats 64.83%)  
+**Submitted:** 2026-08-04T10:25:46.897Z  
 
 ```cpp
 class Solution {
@@ -59,8 +59,8 @@ public:
 
         if(dp[i][j]!=-1)return dp[i][j];
 
-        if(s1[i]==s2[j])return solve(i-1,j)+solve(i-1,j-1);
-        return solve(i-1,j);
+        if(s1[i]==s2[j])return dp[i][j]= solve(i-1,j)+solve(i-1,j-1);
+        return dp[i][j]= solve(i-1,j);
     }
     int numDistinct(string s, string t) {
         int m=s.size();
