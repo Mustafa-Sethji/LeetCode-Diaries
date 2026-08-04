@@ -59,26 +59,25 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-04T02:19:53.678Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 32.1 MB (beats 91.09%)  
+**Submitted:** 2026-08-04T02:19:59.583Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    vector<int> findMissingElements(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int n=nums.size();
-        for(int i=0;i<n-1;i++){
-            for (int x = nums[i] + 1; x < nums[i + 1]; x++) {
-        }
-        vector<int>ans;
-        return ans;
-                ans.push_back(x);
-            }
-    }
+    vector<int> findMissingElements(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        vector<int>ans;
+        for(int i=0;i<n-1;i++){
+            for (int x = nums[i] + 1; x < nums[i + 1]; x++) {
+                ans.push_back(x);
+            }
+        }
+        return ans;
+    }
 };
-
 ```
 
 ---
