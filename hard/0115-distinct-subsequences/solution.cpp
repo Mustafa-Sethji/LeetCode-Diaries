@@ -10,8 +10,8 @@ public:
 
         if(dp[i][j]!=-1)return dp[i][j];
 
-        if(s1[i]==s2[j])return solve(i-1,j)+solve(i-1,j-1);
-        return solve(i-1,j);
+        if(s1[i]==s2[j])return dp[i][j]= solve(i-1,j)+solve(i-1,j-1);
+        return dp[i][j]= solve(i-1,j);
     }
     int numDistinct(string s, string t) {
         int m=s.size();
