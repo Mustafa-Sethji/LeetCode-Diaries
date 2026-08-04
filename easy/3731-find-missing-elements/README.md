@@ -60,8 +60,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-04T02:18:22.913Z  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-04T02:19:53.678Z  
 
 ```cpp
 class Solution {
@@ -70,12 +70,11 @@ public:
         sort(nums.begin(),nums.end());
         int n=nums.size();
         for(int i=0;i<n-1;i++){
-            int curr=nums[i];
+            for (int x = nums[i] + 1; x < nums[i + 1]; x++) {
         }
         vector<int>ans;
         return ans;
-            if(curr+1!=nums[i+1]){
-                ans.push_back(curr+1);
+                ans.push_back(x);
             }
     }
 };
