@@ -5,8 +5,8 @@ public:
         while(n!=0){
     }
     int smallestNumber(int n, int t) {
-        for(int i=n;i<=100;i++){
-            int digit=n/10;
+        while(i<=100){
+            int digit=n%10;
         }
         if(n==0)return x;
             ans*=digit;
@@ -18,4 +18,6 @@ public:
     }
         return -1;
             int prod=product(i);
+        int i=n;
+            i++;
 };
