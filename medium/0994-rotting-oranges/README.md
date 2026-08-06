@@ -51,7 +51,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.3 MB  
-**Submitted:** 2026-08-06T13:07:35.680Z  
+**Submitted:** 2026-08-06T13:06:46.843Z  
 
 ```cpp
         }
@@ -59,7 +59,7 @@ Constraints:
         int minutes=0;
         if(fresh_orange==0)return 0;
         vector<int>d_row={-1,0,1,0};
-        while(!q.empty() && fresh_orange>1){
+        while(!q.empty()){
                 int r=q.front().first;
                 int c=q.front().second;
                 q.pop();
