@@ -3,7 +3,7 @@
         int minutes=0;
         if(fresh_orange==0)return 0;
         vector<int>d_row={-1,0,1,0};
-        while(!q.empty()){
+        while(!q.empty() && fresh_orange>1){
                 int r=q.front().first;
                 int c=q.front().second;
                 q.pop();
@@ -23,9 +23,8 @@
         }
 
             int qsize=q.size();
-            while(qsize){
+            while(qsize--){
             }
-                qsize--;
         if(fresh_orange==0)return minutes;
         return -1;
     }
