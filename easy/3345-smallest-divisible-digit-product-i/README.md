@@ -42,8 +42,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-08-06T02:14:34.713Z  
+**Memory:** 7.7 MB  
+**Submitted:** 2026-08-06T02:15:44.174Z  
 
 ```cpp
 class Solution {
@@ -53,8 +53,8 @@ public:
         while(n!=0){
     }
     int smallestNumber(int n, int t) {
-        for(int i=n;i<=100;i++){
-            int digit=n/10;
+        while(i<=100){
+            int digit=n%10;
         }
         if(n==0)return x;
             ans*=digit;
@@ -66,6 +66,8 @@ public:
     }
         return -1;
             int prod=product(i);
+        int i=n;
+            i++;
 };
 
 ```
