@@ -87,8 +87,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8 MB  
-**Submitted:** 2026-08-08T10:53:53.015Z  
+**Memory:** 7.8 MB  
+**Submitted:** 2026-08-08T10:54:17.113Z  
 
 ```cpp
 class Solution {
@@ -102,7 +102,7 @@ public:
         }
                 j--;
             }
-                last[j]=1;
+                last[j]=i;
         j=0;
         int flag=1;
         vector<int>ans;
