@@ -9,7 +9,7 @@ public:
         }
                 j--;
             }
-                last[j]=1;
+                last[j]=i;
         j=0;
         int flag=1;
         vector<int>ans;
