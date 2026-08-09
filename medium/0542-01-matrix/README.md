@@ -40,8 +40,8 @@ Note: This question is the same as 1765: https://leetcode.com/problems/map-of-hi
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-08-09T12:32:54.478Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-09T12:34:32.400Z  
 
 ```cpp
         }
@@ -59,11 +59,11 @@ Note: This question is the same as 1765: https://leetcode.com/problems/map-of-hi
             int distance=q.front().second;
             for(int i=0;i<4;i++){
                 int new_row=r+d_row[i];
-                int new_col=r+d_col[i];
+                int new_col=c+d_col[i];
                 if(new_row<n && new_row>=0 && new_col<m && new_col>=0 && !vis[new_row][new_col]){
-                    dis[new_row][new_col]=distance+1;
                     q.push({{i,j},0});
-                if(mat[i][j]==0){
+            q.pop();
+                    dis[new_row][new_col]=distance+1;
                     vis[new_row][new_col]=1;
                     q.push({{new_row,new_col},distance+1});
                 }
@@ -71,7 +71,6 @@ Note: This question is the same as 1765: https://leetcode.com/problems/map-of-hi
         }
         return dis;
     }
-            q.pop();
 };
 
 ```
