@@ -14,8 +14,8 @@
         vis[node]=true;
         inRec[node]=true;
         for(int x:adj[node]){
-            if(!vis[x] && isCycleDFS(x))return false;
-            else if(vis[x] && inRec[x])return true; 
+            if(!vis[x] && isCycleDFS(x))return true;
+            else if(vis[x] && inRec[x])return false; 
         }
         inRec[node]=false;
         return false;
@@ -26,7 +26,7 @@
             adj[prerequi[i][0]].emplace_back(prerequi[i][1]);
         }
     unordered_map<int,vector<int>>adj;
-    vector<bool>vis;
     vector<bool>inRec;
+    vector<bool>vis;
 public:
-
+class Solution {
