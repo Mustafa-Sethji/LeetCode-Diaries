@@ -61,41 +61,52 @@ Note: This question is the same as 542: https://leetcode.com/problems/01-matrix/
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-08-09T12:43:24.399Z  
+**Runtime:** 96 ms (beats 23.18%)  
+**Memory:** 135.8 MB (beats 9.85%)  
+**Submitted:** 2026-08-09T12:43:30.897Z  
 
 ```cpp
-        }
-                if(isWater[i][j]==1){
-            }
-                    vis[i][j]=1;
-                }
-                    dis[i][j]=0;
-                    q.push({{i,j},0});
+class Solution {
+public:
+    vector<vector<int>>vis;
+    vector<vector<int>>dis;
+    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
+        int n=isWater.size();
+        int m=isWater[0].size();
+        vis.assign(n,vector<int>(m,0));
+        dis.assign(n,vector<int>(m,0));
+        queue<pair<pair<int,int>,int>>q;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(isWater[i][j]==1){
+                    vis[i][j]=1;
+                    dis[i][j]=0;
+                    q.push({{i,j},0});
+                }
+            }
+        }
 
-        vector<int>d_row={-1,1,0,0};
-        vector<int>d_col={0,0,1,-1};
+        vector<int>d_row={-1,1,0,0};
+        vector<int>d_col={0,0,1,-1};
 
-        while(!q.empty()){
-            int r=q.front().first.first;
-            int c=q.front().first.second;
-            int distance=q.front().second;
-            for(int i=0;i<4;i++){
-                int new_row=r+d_row[i];
-                int new_col=c+d_col[i];
-                if(new_row<n && new_row>=0 && new_col<m && new_col>=0 && !vis[new_row][new_col]){
-                    dis[new_row][new_col]=distance+1;
-                    vis[new_row][new_col]=1;
-                    q.push({{new_row,new_col},distance+1});
-                }              
-            }
-        }
-        return dis;
-    }
-            q.pop();
+        while(!q.empty()){
+            int r=q.front().first.first;
+            int c=q.front().first.second;
+            int distance=q.front().second;
+            q.pop();
+            for(int i=0;i<4;i++){
+                int new_row=r+d_row[i];
+                int new_col=c+d_col[i];
+                if(new_row<n && new_row>=0 && new_col<m && new_col>=0 && !vis[new_row][new_col]){
+                    dis[new_row][new_col]=distance+1;
+                    vis[new_row][new_col]=1;
+                    q.push({{new_row,new_col},distance+1});
+                }              
+            }
+        }
+        return dis;
+    }
 };
-
 ```
 
 ---
