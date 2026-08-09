@@ -15,7 +15,7 @@
         inRec[node]=true;
         for(int x:adj[node]){
             if(!vis[x] && isCycleDFS(x))return true;
-            else if(vis[x] && inRec[x])return false; 
+            else if(vis[x] && inRec[x])return true; 
         }
         inRec[node]=false;
         return false;
