@@ -43,8 +43,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-09T09:04:35.305Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-09T09:05:48.394Z  
 
 ```cpp
         vis.assign(numCourses,false);
@@ -64,7 +64,7 @@ Constraints:
         inRec[node]=true;
         for(int x:adj[node]){
             if(!vis[x] && isCycleDFS(x))return true;
-            else if(vis[x] && inRec[x])return false; 
+            else if(vis[x] && inRec[x])return true; 
         }
         inRec[node]=false;
         return false;
