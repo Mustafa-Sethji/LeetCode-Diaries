@@ -44,7 +44,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.3 MB  
-**Submitted:** 2026-08-09T09:01:52.195Z  
+**Submitted:** 2026-08-09T09:04:35.305Z  
 
 ```cpp
         vis.assign(numCourses,false);
@@ -63,8 +63,8 @@ Constraints:
         vis[node]=true;
         inRec[node]=true;
         for(int x:adj[node]){
-            if(!vis[x] && isCycleDFS(x))return false;
-            else if(vis[x] && inRec[x])return true; 
+            if(!vis[x] && isCycleDFS(x))return true;
+            else if(vis[x] && inRec[x])return false; 
         }
         inRec[node]=false;
         return false;
@@ -75,10 +75,10 @@ Constraints:
             adj[prerequi[i][0]].emplace_back(prerequi[i][1]);
         }
     unordered_map<int,vector<int>>adj;
-    vector<bool>vis;
     vector<bool>inRec;
+    vector<bool>vis;
 public:
-
+class Solution {
 
 ```
 
