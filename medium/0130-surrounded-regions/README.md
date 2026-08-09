@@ -47,9 +47,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-08-09T13:09:41.073Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 14.6 MB (beats 36.39%)  
+**Submitted:** 2026-08-09T13:09:48.080Z  
 
 ```cpp
 class Solution {
@@ -63,7 +63,7 @@ public:
         for(int i=0;i<4;i++){
             int n_r=r+d_row[i];
             int n_c=c+d_col[i];
-            if(n_c<m && n_c>=0 && n_r>=0 && n_r<n && board[n_r][n_c]=='O')dfs(n_r,n_c,board);
+            if(n_c<m && n_c>=0 && n_r>=0 && n_r<n && !vis[n_r][n_c] && board[n_r][n_c]=='O')dfs(n_r,n_c,board);
         }
         return ;
     }
