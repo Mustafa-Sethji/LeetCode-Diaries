@@ -44,39 +44,50 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-08-09T14:00:48.603Z  
+**Runtime:** 341 ms (beats 22.28%)  
+**Memory:** 21.2 MB (beats 57.06%)  
+**Submitted:** 2026-08-09T14:00:58.390Z  
 
 ```cpp
-                    word[i]=ch;
-                    if(st.find(word)!=st.end()){
-                        q.push({word,level+1});
-                        st.erase(word);
-                    }
-                for(char ch='a';ch<='z';ch++){
-                char orginal=word[i];
-            for(int i=0;i<word.size();i++){
-            if(word==endWord)return level;
-            string word=q.front().first;
-            int level=q.front().second;
-        while(!q.empty()){
-        q.push({beginWord,1});
-        st.erase(beginWord);
-        set<string>st(wordList.begin(),wordList.end());
-        queue<pair<string,int>>q;
-    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-    //     return cnt;
-    // }
-    //     }
-    //     for(int i=0;i<a.size();i++){
-    //         if(a[i]!=b[i])cnt++;
-    //     int cnt=0;
-            q.pop();
-    
-    // int diff(string &a,string &b){
+class Solution {
 public:
-class Solution {
+
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        set<string>st(wordList.begin(),wordList.end());
+        queue<pair<string,int>>q;
+        q.push({beginWord,1});
+        st.erase(beginWord);
+        while(!q.empty()){
+            string word=q.front().first;
+            int level=q.front().second;
+            q.pop();
+            if(word==endWord)return level;
+            for(int i=0;i<word.size();i++){
+                char orginal=word[i];
+                for(char ch='a';ch<='z';ch++){
+                    word[i]=ch;
+                    if(st.find(word)!=st.end()){
+                        q.push({word,level+1});
+                        st.erase(word);
+                    }
+                }
+                word[i]=orginal;
+            }
+        }
+        return 0;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
 
 ```
 
