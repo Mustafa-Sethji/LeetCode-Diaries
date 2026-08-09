@@ -9,7 +9,7 @@ public:
         for(int i=0;i<4;i++){
             int n_r=r+d_row[i];
             int n_c=c+d_col[i];
-            if(n_c<m && n_c>=0 && n_r>=0 && n_r<n && board[n_r][n_c]=='O')dfs(n_r,n_c,board);
+            if(n_c<m && n_c>=0 && n_r>=0 && n_r<n && !vis[n_r][n_c] && board[n_r][n_c]=='O')dfs(n_r,n_c,board);
         }
         return ;
     }
