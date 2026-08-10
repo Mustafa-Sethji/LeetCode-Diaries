@@ -57,8 +57,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-08-10T16:46:10.027Z  
+**Memory:** 8.7 MB  
+**Submitted:** 2026-08-10T16:48:51.520Z  
 
 ```cpp
     vector<int>d_row={-1,-1,-1,1,1,1,0,0};
