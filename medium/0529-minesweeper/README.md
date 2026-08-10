@@ -57,8 +57,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.7 MB  
-**Submitted:** 2026-08-10T16:48:51.520Z  
+**Memory:** 8.6 MB  
+**Submitted:** 2026-08-10T16:49:57.465Z  
 
 ```cpp
     vector<int>d_row={-1,-1,-1,1,1,1,0,0};
@@ -68,7 +68,7 @@ Constraints:
         int mines = 0;
         for(int i=0;i<8;i++){
             int n_r=r+d_row[i];
-            int n_c=r+d_col[i];
+            int n_c=c+d_col[i];
             if(n_r<n && n_r>=0 && n_c>=0 && n_c<m && board[n_r][n_c]=='M'){
                 mines++;
             }
@@ -100,7 +100,7 @@ Constraints:
     int n,m;
     vector<vector<int>>vis;
             int n_r=r+d_row[i];
-            int n_c=r+d_col[i];
+            int n_c=c+d_col[i];
             if(n_r<n && n_r>=0 && n_c>=0 && n_c<m && vis[n_r][n_c]==0 && board[n_r][n_c]=='E'){
         return board;
     }
