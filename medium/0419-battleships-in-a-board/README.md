@@ -39,7 +39,7 @@ Follow up: Could you do it in one-pass, using only O(1) extra memory and without
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
 **Memory:** 12.1 MB (beats 65.33%)  
-**Submitted:** 2026-08-10T11:30:55.990Z  
+**Submitted:** 2026-08-10T16:42:22.680Z  
 
 ```cpp
 class Solution {
@@ -58,7 +58,6 @@ public:
         return ans;
     }
 };
-
 ```
 
 ---
