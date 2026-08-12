@@ -50,41 +50,40 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-12T02:28:13.180Z  
+**Runtime:** 76 ms (beats 21.91%)  
+**Memory:** 149.3 MB (beats 84.27%)  
+**Submitted:** 2026-08-12T02:28:19.020Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int maxSubarrayLength(vector<int>& nums, int k) {
-        int n=nums.size();
-        unordered_map<int,int>hash;
-        for(int i=0;i<n;i++){
-            if(hash.find(nums[i])==hash.end()){ 
-        }
-        int ans=0;
-        int j=0;
-                hash[nums[i]]++;
-            }
-            else{
-                if(hash[nums[i]]<k){
-            }
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        int n=nums.size();
+        unordered_map<int,int>hash;
+        int ans=0;
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(hash.find(nums[i])==hash.end()){ 
+                hash[nums[i]]++;
+            }
+            else{
+                if(hash[nums[i]]<k){
+                    hash[nums[i]]++;
+                }
+                else{
+                    while(hash[nums[i]]==k){
+                        hash[nums[j]]--;
+                        j++;
+                    }
+                    hash[nums[i]]++;
+                }
+            }
+            ans=max(ans,i-j+1);
 
-                    hash[nums[i]]++;
-                }
-                else{
-                    while(hash[nums[i]]==k){
-                }
-                        hash[nums[j]]--;
-                    }
-    }
-                        j++;
-            ans=max(ans,i-j+1);
-        return ans;
-                    hash[nums[i]]++;
+        }
+        return ans;
+    }
 };
-
 ```
 
 ---
