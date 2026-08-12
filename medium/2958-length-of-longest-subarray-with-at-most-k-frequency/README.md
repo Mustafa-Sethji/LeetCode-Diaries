@@ -52,7 +52,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.3 MB  
-**Submitted:** 2026-08-12T02:26:58.000Z  
+**Submitted:** 2026-08-12T02:28:13.180Z  
 
 ```cpp
 class Solution {
@@ -82,6 +82,7 @@ public:
                         j++;
             ans=max(ans,i-j+1);
         return ans;
+                    hash[nums[i]]++;
 };
 
 ```
