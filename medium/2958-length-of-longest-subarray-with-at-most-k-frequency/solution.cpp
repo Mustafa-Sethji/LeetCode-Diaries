@@ -25,4 +25,5 @@ public:
                         j++;
             ans=max(ans,i-j+1);
         return ans;
+                    hash[nums[i]]++;
 };
