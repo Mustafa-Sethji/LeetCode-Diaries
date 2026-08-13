@@ -42,40 +42,37 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 9 ms (beats 26.93%)  
-**Memory:** 20 MB (beats 37.93%)  
-**Submitted:** 2026-08-09T09:05:54.134Z  
+**Runtime:** 0 ms  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-08-13T12:19:50.745Z  
 
 ```cpp
-class Solution {
-public:
-    vector<bool>vis;
-    vector<bool>inRec;
-    unordered_map<int,vector<int>>adj;
-    bool isCycleDFS(int node){
-        vis[node]=true;
-        inRec[node]=true;
-        for(int x:adj[node]){
-            if(!vis[x] && isCycleDFS(x))return true;
-            else if(vis[x] && inRec[x])return true; 
-        }
-        inRec[node]=false;
-        return false;
-    }
-    bool canFinish(int numCourses, vector<vector<int>>& prerequi) {
-        int n=prerequi.size();
-        for(int i=0;i<n;i++){
-            adj[prerequi[i][0]].emplace_back(prerequi[i][1]);
-        }
-        vis.assign(numCourses,false);
-        inRec.assign(numCourses,false);
-        for(int i=0;i<numCourses;i++){
-            if(!vis[i] && isCycleDFS(i))return false;
-        }
-        return true;
+    unordered_map<int,vector<int>>adj;
+    bool isCycleDFS(int node){
+        vis[node]=true;
+        inRec[node]=true;
+        for(int x:adj[node]){
+            if(!vis[x] && isCycleDFS(x))return true;
+            else if(vis[x] && inRec[x])return true; 
+        }
+        inRec[node]=false;
+        return false;
+    }
+    bool canFinish(int numCourses, vector<vector<int>>& prerequi) {
+        int n=prerequi.size();
+        for(int i=0;i<n;i++){
+            adj[prerequi[i][1]].emplace_back(prerequi[i][0]);
+        }
+        vis.assign(numCourses,false);
+        inRec.assign(numCourses,false);
+        for(int i=0;i<numCourses;i++){
+            if(!vis[i] && isCycleDFS(i))return false;
+        }
+        return true;
 
-    }
+    }
 };
+
 
 
 
