@@ -36,37 +36,36 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8 MB  
-**Submitted:** 2026-08-14T08:03:24.131Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 9.7 MB (beats 44.69%)  
+**Submitted:** 2026-08-14T08:03:29.262Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int maximumLengthSubstring(string s) {
-        int n=s.size();
-        unordered_map<char,int>map;
-        int ans=0;
-        int j=0;
-        for(int i=0;i<n;i++){
-            char ch=s[i];
-            if(map.find(ch)!=map.end()){
-                while(map[ch]==2){
-                    map[s[j]]--;
-                    j++;
-                }
-                map[ch]++;
-                ans=max(ans,i-j+1);
-            }
-            else{
-                map[ch]++;
-                ans=max(i-j+1,ans);
-            }
-        }
-        return ans;
-    }
+    int maximumLengthSubstring(string s) {
+        int n=s.size();
+        unordered_map<char,int>map;
+        int ans=0;
+        int j=0;
+        for(int i=0;i<n;i++){
+            char ch=s[i];
+            if(map.find(ch)!=map.end()){
+                while(map[ch]==2){
+                    map[s[j]]--;
+                    j++;
+                }
+                map[ch]++;
+                ans=max(ans,i-j+1);
+            }
+            else{
+                map[ch]++;
+                ans=max(i-j+1,ans);
+            }
+        }
+        return ans;
+    }
 };
-
 ```
 
 ---
