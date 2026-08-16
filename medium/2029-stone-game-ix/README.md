@@ -52,31 +52,30 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8 MB  
-**Submitted:** 2026-08-16T04:21:13.425Z  
+**Runtime:** 8 ms (beats 30.20%)  
+**Memory:** 131.3 MB (beats 33.50%)  
+**Submitted:** 2026-08-16T04:21:18.574Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    bool stoneGameIX(vector<int>& stones) {
-        int cnt[3] = {0};
+    bool stoneGameIX(vector<int>& stones) {
+        int cnt[3] = {0};
 
-        // Count remainders
-        for (int x : stones) {
-            cnt[x % 3]++;
-        }
+        // Count remainders
+        for (int x : stones) {
+            cnt[x % 3]++;
+        }
 
-        // Even number of remainder-0 stones
-        if (cnt[0] % 2 == 0) {
-            return cnt[1] > 0 && cnt[2] > 0;
-        }
+        // Even number of remainder-0 stones
+        if (cnt[0] % 2 == 0) {
+            return cnt[1] > 0 && cnt[2] > 0;
+        }
 
-        // Odd number of remainder-0 stones
-        return abs(cnt[1] - cnt[2]) > 2;
-    }
+        // Odd number of remainder-0 stones
+        return abs(cnt[1] - cnt[2]) > 2;
+    }
 };
-
 ```
 
 ---
