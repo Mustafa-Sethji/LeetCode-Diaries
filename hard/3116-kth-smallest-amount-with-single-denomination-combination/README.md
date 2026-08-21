@@ -50,43 +50,66 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-21T03:25:47.294Z  
+**Runtime:** 206 ms (beats 16.28%)  
+**Memory:** 20.7 MB (beats 46.51%)  
+**Submitted:** 2026-08-21T03:25:52.111Z  
 
 ```cpp
-                    }
-                }
+class Solution {
+public:
+    long long findKthSmallest(vector<int>& coins, int k) {
+        int n = coins.size();
 
-                if (overflow || l > x) continue;
+        // Count valid distinct amounts <= x
+        auto count = [&](long long x) -> long long {
+            long long cnt = 0;
 
-                // Inclusion-Exclusion
-                if (__builtin_popcount(mask) % 2 == 1)
-                    cnt += x / l;
-                else
-                    cnt -= x / l;
-            }
+            // Iterate over every non-empty subset
+            for (int mask = 1; mask < (1 << n); mask++) {
+                long long l = 1;
+                bool overflow = false;
 
-            return cnt;
-        };
+                for (int i = 0; i < n; i++) {
+                    if (mask & (1 << i)) {
+                        long long g = gcd(l, (long long)coins[i]);
 
-        long long low = 1;
-        long long high = 1LL * k * (*min_element(coins.begin(), coins.end
-        ()));
+                        // Prevent LCM from becoming unnecessarily large
+                        if (l / g > x / coins[i]) {
+                            overflow = true;
+                            break;
+                        }
 
-        while (low < high) {
-            long long mid = low + (high - low) / 2;
+                        l = (l / g) * coins[i];
+                    }
+                }
 
-            if (count(mid) >= k)
-                high = mid;
-            else
-                low = mid + 1;
-        }
+                if (overflow || l > x) continue;
 
-        return low;
-    }
+                // Inclusion-Exclusion
+                if (__builtin_popcount(mask) % 2 == 1)
+                    cnt += x / l;
+                else
+                    cnt -= x / l;
+            }
+
+            return cnt;
+        };
+
+        long long low = 1;
+        long long high = 1LL * k * (*min_element(coins.begin(), coins.end()));
+
+        while (low < high) {
+            long long mid = low + (high - low) / 2;
+
+            if (count(mid) >= k)
+                high = mid;
+            else
+                low = mid + 1;
+        }
+
+        return low;
+    }
 };
-
 ```
 
 ---
