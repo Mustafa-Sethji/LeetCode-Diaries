@@ -44,9 +44,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-25T02:08:51.693Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 24.5 MB (beats 56.21%)  
+**Submitted:** 2026-08-25T02:08:56.761Z  
 
 ```cpp
 class Solution {
@@ -59,7 +59,7 @@ public:
         for(int i=1;i<in_nums.size();i++){
             if(in_nums[i]!=1)return i*k;
         }
-        return 1;
+        return 101;
     }
 };
 ```
