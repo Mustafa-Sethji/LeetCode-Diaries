@@ -6,7 +6,7 @@ public:
             in_nums[nums[i]/k]=1;
         }
         for(int i=1;i<in_nums.size();i++){
-            if(in_nums[i]!=1)return i;
+            if(in_nums[i]!=1)return i*k;
         }
     }
         return 1;
