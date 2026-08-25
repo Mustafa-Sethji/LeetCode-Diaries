@@ -8,6 +8,6 @@ public:
         for(int i=1;i<in_nums.size();i++){
             if(in_nums[i]!=1)return i*k;
         }
-        return 1;
+        return 101;
     }
 };
