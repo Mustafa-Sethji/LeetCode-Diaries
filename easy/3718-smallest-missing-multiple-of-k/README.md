@@ -46,7 +46,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.2 MB  
-**Submitted:** 2026-08-25T02:07:09.782Z  
+**Submitted:** 2026-08-25T02:07:21.588Z  
 
 ```cpp
 class Solution {
@@ -57,7 +57,7 @@ public:
             in_nums[nums[i]/k]=1;
         }
         for(int i=1;i<in_nums.size();i++){
-            if(in_nums[i]!=1)return i;
+            if(in_nums[i]!=1)return i*k;
         }
     }
         return 1;
