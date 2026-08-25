@@ -46,7 +46,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.2 MB  
-**Submitted:** 2026-08-25T02:07:21.588Z  
+**Submitted:** 2026-08-25T02:08:24.632Z  
 
 ```cpp
 class Solution {
@@ -54,13 +54,13 @@ public:
     int missingMultiple(vector<int>& nums, int k) {
         vector<int>in_nums(101,0);
         for(int i=0;i<nums.size();i++){
-            in_nums[nums[i]/k]=1;
         }
         for(int i=1;i<in_nums.size();i++){
             if(in_nums[i]!=1)return i*k;
         }
     }
         return 1;
+            if(nums[i]%k==0)in_nums[nums[i]/k]=1;
 };
 
 ```
