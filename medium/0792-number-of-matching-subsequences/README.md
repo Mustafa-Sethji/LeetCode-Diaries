@@ -40,11 +40,9 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.4 MB  
-**Submitted:** 2026-08-28T17:38:52.661Z  
+**Submitted:** 2026-08-28T17:40:05.946Z  
 
 ```cpp
-        for(int i=0;i<n;i++){
-            if(solve(s,words[i])){
         for(int i=0;i<s.size();i++){
             sort(hash[s[i]].begin(),hash[s[i]].end());
         }
@@ -68,13 +66,15 @@ Constraints:
                         prev=x;
                     }
                         break;
-        }
-        return count;
-    }
-                count++;
-            }
-                cout<<words[i]<<"\n";
-};
+            if(hash.find(sub[i])!=hash.end()){
+        int prev=-1;
+        for(int i=0;i<sub.size();i++){
+    bool solve(string &s,string &sub){
+    unordered_map<char,vector<int>>hash;
+public:
+                bool found=false;
+                        found=true;
+                if(!found) return false;
 
 ```
 
