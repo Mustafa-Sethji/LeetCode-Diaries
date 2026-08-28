@@ -1,5 +1,3 @@
-        for(int i=0;i<n;i++){
-            if(solve(s,words[i])){
         for(int i=0;i<s.size();i++){
             sort(hash[s[i]].begin(),hash[s[i]].end());
         }
@@ -23,10 +21,12 @@
                         prev=x;
                     }
                         break;
-        }
-        return count;
-    }
-                count++;
-            }
-                cout<<words[i]<<"\n";
-};
+            if(hash.find(sub[i])!=hash.end()){
+        int prev=-1;
+        for(int i=0;i<sub.size();i++){
+    bool solve(string &s,string &sub){
+    unordered_map<char,vector<int>>hash;
+public:
+                bool found=false;
+                        found=true;
+                if(!found) return false;
