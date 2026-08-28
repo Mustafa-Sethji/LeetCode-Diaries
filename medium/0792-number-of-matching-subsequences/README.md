@@ -38,9 +38,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 9 ms  
-**Memory:** 10.6 MB  
-**Submitted:** 2026-08-28T18:01:21.402Z  
+**Runtime:** 215 ms (beats 21.34%)  
+**Memory:** 55.6 MB (beats 58.74%)  
+**Submitted:** 2026-08-28T18:01:27.929Z  
 
 ```cpp
 class Solution {
@@ -50,15 +50,11 @@ public:
         int prev=-1;
         for(int i=0;i<sub.size();i++){
             if(hash.find(sub[i])!=hash.end()){
-                bool found=false;
-                for(int x:hash[sub[i]]){
-                    if(x>prev){
-                        prev=x;
-                        found=true;
-                        break;
-                    }
-                }
-                if(!found) return false;
+                auto it=upper_bound(hash[sub[i]].begin(),hash[sub[i]].end(),prev);
+
+                if(it==hash[sub[i]].end()) return false;
+
+                prev=*it;
             }
             else return false;
         }
@@ -70,10 +66,6 @@ public:
 
         for(int i=0;i<s.size();i++){
             hash[s[i]].push_back(i);
-        }
-
-        for(int i=0;i<s.size();i++){
-            sort(hash[s[i]].begin(),hash[s[i]].end());
         }
 
         for(int i=0;i<n;i++){
