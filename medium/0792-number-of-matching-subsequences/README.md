@@ -39,15 +39,12 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-08-28T17:38:06.605Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-28T17:38:52.661Z  
 
 ```cpp
-class Solution {
-public:
         for(int i=0;i<n;i++){
-            if(solve(s,words[i]))count++;
-    unordered_map<char,vector<int>>hash;
+            if(solve(s,words[i])){
         for(int i=0;i<s.size();i++){
             sort(hash[s[i]].begin(),hash[s[i]].end());
         }
@@ -55,16 +52,12 @@ public:
         int n=words.size();
     int numMatchingSubseq(string s, vector<string>& words) {
     }
-        for(int i=0;i<sub.size();i++){
-    bool solve(string &s,string &sub){
             hash[s[i]].push_back(i);
         }
         for(int i=0;i<s.size();i++){
 
 
 
-        int prev=-1;
-            if(hash.find(sub[i])!=hash.end()){
         }
         return true;
             else return false;
@@ -75,6 +68,13 @@ public:
                         prev=x;
                     }
                         break;
+        }
+        return count;
+    }
+                count++;
+            }
+                cout<<words[i]<<"\n";
+};
 
 ```
 
