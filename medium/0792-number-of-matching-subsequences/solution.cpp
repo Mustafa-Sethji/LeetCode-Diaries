@@ -5,15 +5,11 @@ public:
         int prev=-1;
         for(int i=0;i<sub.size();i++){
             if(hash.find(sub[i])!=hash.end()){
-                bool found=false;
-                for(int x:hash[sub[i]]){
-                    if(x>prev){
-                        prev=x;
-                        found=true;
-                        break;
-                    }
-                }
-                if(!found) return false;
+                auto it=upper_bound(hash[sub[i]].begin(),hash[sub[i]].end(),prev);
+
+                if(it==hash[sub[i]].end()) return false;
+
+                prev=*it;
             }
             else return false;
         }
@@ -25,10 +21,6 @@ public:
 
         for(int i=0;i<s.size();i++){
             hash[s[i]].push_back(i);
-        }
-
-        for(int i=0;i<s.size();i++){
-            sort(hash[s[i]].begin(),hash[s[i]].end());
         }
 
         for(int i=0;i<n;i++){
