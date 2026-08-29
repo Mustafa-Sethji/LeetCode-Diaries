@@ -54,8 +54,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-08-29T05:03:39.394Z  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-08-29T05:09:13.371Z  
 
 ```cpp
 class Solution {
@@ -68,24 +68,28 @@ public:
         //bishop(c,d)
         int i=c,j=d;
         while(i>0 && j>0){
+            if(i==a && j==b) break;
             if(i==e && j==f) return 1;
             i--;
             j--;
         }
         i=c,j=d;
         while(i>0 && j<=8){
+            if(i==a && j==b) break;
             if(i==e && j==f) return 1;
             i--;
             j++;
         }
         i=c,j=d;
         while(i<=8 && j>0){
+            if(i==a && j==b) break;
             if(i==e && j==f) return 1;
             i++;
             j--;
         }
         i=c,j=d;
         while(i<=8 && j<=8){
+            if(i==a && j==b) break;
             if(i==e && j==f) return 1;
             i++;
             j++;
