@@ -55,7 +55,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 7.9 MB  
-**Submitted:** 2026-08-29T05:09:13.371Z  
+**Submitted:** 2026-08-29T05:11:13.470Z  
 
 ```cpp
 class Solution {
@@ -63,7 +63,15 @@ public:
     int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
 
         //  for rook (a,b)
-        if(a==e || b==f) return 1;
+        if(a==e || b==f ) {
+            if(a==c){
+                if(!(a<c<e || e<c<a))return 1;
+            }
+            else if(b=d){
+                if(!(b<d<f || f<d<b))return 1;
+            }
+            else return 1;
+        }
 
         //bishop(c,d)
         int i=c,j=d;
