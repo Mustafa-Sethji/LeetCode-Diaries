@@ -44,8 +44,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-29T03:44:03.345Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-29T03:57:33.307Z  
 
 ```cpp
 class Solution {
@@ -62,17 +62,19 @@ public:
         int result=n;
 
         //step-2 start finding correct i and j and find deleted elemnt  j-i-1
-        while(){
+        while(i<j && ( i==0 || arr[i]>=arr[i-1])){ //increasing order of element from i
 
             //arr[j]>=arr[i]
             while(j<n && arr[i]>arr[j]){
                 j++;
             }
 
-            we have found correct j element such that arr[i]<=arr[j]
+            // we have found correct j element such that arr[i]<=arr[j]
 
-
+            result =min(result,j-i-1);
+            i++;
         }
+        return result;
     }
 };
 ```
