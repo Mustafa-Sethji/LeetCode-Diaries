@@ -50,9 +50,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 23 ms  
-**Memory:** 12.1 MB  
-**Submitted:** 2026-08-30T17:08:44.835Z  
+**Runtime:** 21 ms  
+**Memory:** 12 MB  
+**Submitted:** 2026-08-30T17:09:26.407Z  
 
 ```cpp
 class Solution {
@@ -75,8 +75,8 @@ public:
                 next[i] = (password[i] - '0' + 1) % 10 + '0';
 
                 if(!st.count(next) && !visited.count(next)){
-                    visited.insert(password);
-                    q.push({password,level+1});
+                    visited.insert(next);
+                    q.push({next,level+1});
                 }
 
                 next[i] = (password[i] - '0' + 9) % 10 + '0';
