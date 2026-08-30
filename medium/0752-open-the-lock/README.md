@@ -50,51 +50,45 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 19 ms  
-**Memory:** 12.5 MB  
-**Submitted:** 2026-08-30T17:07:29.607Z  
+**Runtime:** 23 ms  
+**Memory:** 12.1 MB  
+**Submitted:** 2026-08-30T17:08:44.835Z  
 
 ```cpp
 class Solution {
 public:
-    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        set<string>st(wordList.begin(),wordList.end());
-        queue<vector<string>>q;
-        q.push({beginWord});
-        vector<vector<string>>ans;
-        bool found=false;
-        while(!q.empty() && !found){
-            int size=q.size();
-            set<string>used;
-            while(size--){
-                vector<string> temp=q.front();
-                string word=temp.back();
-                q.pop();
-                for(int i=0;i<word.size();i++){
-                    char original=word[i];
-                    for(char ch='a';ch<='z';ch++){
-                        if(original==ch)continue;
-                        word[i]=ch;
+    int openLock(vector<string>& deadends, string target) {
+        string start="0000";
+        unordered_set<string>st(deadends.begin(),deadends.end());
+        queue<pair<string,int>>q;
+        unordered_set<string> visited;
+        q.push({start,0});
+        visited.insert(start);
+        while(!q.empty()){
+            string password=q.front().first;
+            int level=q.front().second;
+            q.pop();
+            if(password==target)return level;
+            for(int i=0;i<4;i++){
+                string next = password;
 
-                        if(st.find(word)!=st.end()){
-                            temp.push_back(word);
+                next[i] = (password[i] - '0' + 1) % 10 + '0';
 
-                            if(word==endWord){
-                                ans.push_back(temp);
-                                found=true;
-                            }
-                            else {q.push(temp);}
-                            
-                            used.insert(word);
-                            temp.pop_back();
-                        }
-                    }
-                    word[i]=original;
+                if(!st.count(next) && !visited.count(next)){
+                    visited.insert(password);
+                    q.push({password,level+1});
                 }
+
+                next[i] = (password[i] - '0' + 9) % 10 + '0';
+
+                if(!st.count(next) && !visited.count(next)) {
+                    visited.insert(next);
+                    q.push({next, level + 1});
+                }
+
             }
-            for(string x:used) st.erase(x);
         }
-        return ans;
+        return -1; 
     }
 };
 ```
