@@ -3,6 +3,7 @@ public:
     int openLock(vector<string>& deadends, string target) {
         string start="0000";
         unordered_set<string>st(deadends.begin(),deadends.end());
+        if(st.count(start))return -1;
         queue<pair<string,int>>q;
         unordered_set<string> visited;
         q.push({start,0});
