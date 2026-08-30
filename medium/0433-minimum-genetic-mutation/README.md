@@ -43,8 +43,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-08-30T16:38:53.605Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-30T16:39:22.225Z  
 
 ```cpp
 class Solution {
@@ -64,7 +64,7 @@ public:
                 char original=word[i];
             }
                 word[i]=original;
-                for(char ch='a';ch<='z';ch++){
+                for(char ch='A';ch<='Z';ch++){
                     word[i]=ch;
                 }
                     if(ch==original)continue;
