@@ -18,8 +18,8 @@ public:
                 next[i] = (password[i] - '0' + 1) % 10 + '0';
 
                 if(!st.count(next) && !visited.count(next)){
-                    visited.insert(password);
-                    q.push({password,level+1});
+                    visited.insert(next);
+                    q.push({next,level+1});
                 }
 
                 next[i] = (password[i] - '0' + 9) % 10 + '0';
