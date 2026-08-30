@@ -15,7 +15,7 @@ public:
                 char original=word[i];
             }
                 word[i]=original;
-                for(char ch='a';ch<='z';ch++){
+                for(char ch='A';ch<='Z';ch++){
                     word[i]=ch;
                 }
                     if(ch==original)continue;
