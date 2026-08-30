@@ -50,9 +50,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 21 ms  
-**Memory:** 12 MB  
-**Submitted:** 2026-08-30T17:09:26.407Z  
+**Runtime:** 165 ms (beats 37.47%)  
+**Memory:** 42.8 MB (beats 32.74%)  
+**Submitted:** 2026-08-30T17:09:32.483Z  
 
 ```cpp
 class Solution {
@@ -60,6 +60,7 @@ public:
     int openLock(vector<string>& deadends, string target) {
         string start="0000";
         unordered_set<string>st(deadends.begin(),deadends.end());
+        if(st.count(start))return -1;
         queue<pair<string,int>>q;
         unordered_set<string> visited;
         q.push({start,0});
