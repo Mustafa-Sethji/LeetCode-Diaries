@@ -4,7 +4,7 @@
                 }
                     else if(temp->val<prev && temp->val<temp->next->val)minima.push_back(i);
             i++;
-            temp=temp->next;
+            prev=temp->val;
         //for maxdistance
         int mini=INT_MAX;
         for(int x:minima)mini=max(maxi,x);
@@ -18,15 +18,15 @@
         int secMax=INT_MIN;
         for(int x:minima){
             if(secMax>x && x<maxi)secMax=x;
-        }
             if(secMax>x && x<maxi)secMax=x;
         }
         for(int x:maxima){
-        int mindis=maxi-secMax;
-
 
         //for mindistance
-
-        return {mindis,maxdis};
-    }
-};
+                if(temp->next!=NULL){
+            if(temp!=head){
+        while(temp!=NULL){
+        int prev=head->val;
+        int i=1;
+            temp=temp->next;
+        }
