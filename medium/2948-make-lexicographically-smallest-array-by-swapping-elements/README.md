@@ -53,54 +53,44 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 163 ms (beats 65.27%)  
-**Memory:** 131.1 MB (beats 93.42%)  
-**Submitted:** 2026-08-31T02:59:28.187Z  
+**Runtime:** 0 ms  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-08-31T17:59:19.370Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    vector<int> lexicographicallySmallestArray(vector<int>& nums, int limit) {
-        int n = nums.size();
+    vector<int> lexicographicallySmallestArray(vector<int>& nums, int limit) {
+        vector<pair<int,int>>v;
 
-        // Store indices
-        vector<int> idx(n);
-        iota(idx.begin(), idx.end(), 0);
+        for(int i=0;i<nums.size();i++) v.push_back({nums[i],i});
 
-        // Sort indices according to their values
-        sort(idx.begin(), idx.end(), [&](int i, int j) {
-            return nums[i] < nums[j];
-        });
+        sort(v.begin(),v.end());
 
-        vector<int> ans(n);
+        int i=0;
+        while(i<n){
+        int n=nums.size();
+            int j=i;
+        }
+            while(j+1<n && abs(v[j+1].first-v[j].first)<=limit)j++;
 
-        for (int i = 0; i < n; ) {
+            vector<int>indices;
 
-            // Find the group
-            int j = i + 1;
+            for(int k=i;k<=j;k++){
+                indices.push_back(v[k].second);
+            }
 
-            while (j < n &&
-                   nums[idx[j]] - nums[idx[j - 1]] <= limit) {
-                j++;
-            }
+            sort(indices.begin(),indices.end());
 
-            // Indices belonging to this group
-            vector<int> positions(idx.begin() + i, idx.begin() + j);
-
-            // Put positions in original index order
-            sort(positions.begin(), positions.end());
-
-            // Smallest values go to smallest indices
-            for (int k = i; k < j; k++) {
-                ans[positions[k - i]] = nums[idx[k]];
-            }
-
-            i = j;
-        }
-
-        return ans;
-    }
+            for(int k=0;k<indices.size();k++){
+                ans[indices[k]]=v[i+k].first;
+            }
+    }
+        vector<int>ans(n);
+            i=j+1;
+        return ans;
 };
+
 ```
 
 ---
