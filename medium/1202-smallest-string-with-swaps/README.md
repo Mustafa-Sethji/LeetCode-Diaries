@@ -51,54 +51,55 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-09-01T07:03:17.692Z  
+**Runtime:** 140 ms  
+**Memory:** 69.4 MB  
+**Submitted:** 2026-09-01T07:09:39.521Z  
 
 ```cpp
 class Solution {
 public:
+    int n;
+    int m;
+    vector<int>vis;
+    void dfs(unordered_map<int,vector<int>> &graph,int node){
+        vis[node]=m;
+        for(int &x:graph[node]){
+            if(!vis[x])dfs(graph,x);
+        }
+        return;
+    }
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
-        if(pairs.empty())return s;
-        int n=pairs.size();
+        n=s.size();
+        unordered_map<int,vector<int>>graph;
+        vis.assign(n,0);
+        for(auto &v:pairs){
+            graph[v[0]].push_back(v[1]);
+            graph[v[1]].push_back(v[0]);
+        }
+        m=1;
+        vector<char>ans(n); 
+
+        for(int i=0;i<n;i++)ans[i]=s[i];
 
         for(int i=0;i<n;i++){
-            if(pairs[i][0]>pairs[i][1]){
-                int temp=pairs[i][1];
-                pairs[i][1]=pairs[i][0];
-                pairs[i][0]=temp;
+            if(!vis[i]) dfs(graph,i);
+            else continue;
+            vector<int>idx;
+            for(int k=0;k<n;k++){
+                if(vis[k]==m){idx.push_back(k);}
             }
-        }
-
-        sort(pairs.begin(),pairs.end());
-        int i=0;
-        int n_ch=s.size();
-        vector<char>ans(n_ch);
-        for(int i=0;i<n_ch;i++)ans[i]=s[i];
-        while(i<n){
-            int j=i;
-            set<int>st;
-            while( j<n && ( st.empty() || st.find(pairs[j][0])!=st.end() || st.find(pairs[j][1])!=st.end() ) ){
-                st.insert(pairs[j][0]);
-                st.insert(pairs[j][1]);
-                j++;
-            }
-            vector<int>indices;
             vector<char>character;
-            for(int x : st){
-                indices.push_back(x);
-                character.push_back(s[x]);
-            }
-
+            for(int x:idx)character.push_back(s[x]);
+            sort(idx.begin(),idx.end());
             sort(character.begin(),character.end());
-
-            for(int k=0;k<indices.size();k++){
-                ans[indices[k]]=character[k];
+            for(int k=0;k<idx.size();k++){
+                ans[idx[k]]=character[k];
             }
-            i=j;
+            m++;
         }
-        string a="";
-        for(char ch:ans)a+=ch;
+
+        string a=""; 
+        for(char ch:ans)a+=ch; 
         return a;
 
     }
