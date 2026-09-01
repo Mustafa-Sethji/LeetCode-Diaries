@@ -50,9 +50,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.8 MB  
-**Submitted:** 2026-09-01T09:51:31.911Z  
+**Runtime:** 307 ms (beats 9.85%)  
+**Memory:** 224.9 MB (beats 8.26%)  
+**Submitted:** 2026-09-01T09:51:38.530Z  
 
 ```cpp
 class Solution {
@@ -60,48 +60,43 @@ public:
     int n;
     int m;
     vector<int>vis;
-    void dfs(unordered_map<int,vector<int>> &graph,int node,vector<int>&idx){
+    void dfs(unordered_map<int,vector<int>>&graph,int node,unordered_map<int,int> &freq,vector<int> &indices,vector<int>&source){
         vis[node]=m;
-        idx.push_back(node);
-        for(int &x:graph[node]){
-            if(!vis[x])dfs(graph,x,idx);
+        freq[source[node]]++;
+        indices.push_back(node);
+        for(int &v:graph[node]){
+            if(!vis[v]) dfs(graph,v,freq,indices,source);
         }
         return;
     }
-    string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
-        n=s.size();
+    int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& allowedSwaps) {
+        n=source.size();
+        m=1;
         unordered_map<int,vector<int>>graph;
-        vis.assign(n,0);
-        for(auto &v:pairs){
+        for(auto &v:allowedSwaps){
             graph[v[0]].push_back(v[1]);
             graph[v[1]].push_back(v[0]);
         }
-        m=1;
-        vector<char>ans(n); 
 
-        for(int i=0;i<n;i++)ans[i]=s[i];
-
+        vis.assign(n,0);
+        int hamming=0;
         for(int i=0;i<n;i++){
-            vector<int>idx;
-            if(!vis[i]) dfs(graph,i,idx);
+            unordered_map<int,int>freq;
+            vector<int>indices;
+            if(!vis[i])dfs(graph,i,freq,indices,source);
             else continue;
- 
-            vector<char>character;
-            for(int x:idx)character.push_back(s[x]);
 
-            sort(idx.begin(),idx.end());
-            sort(character.begin(),character.end());
-            
-            for(int k=0;k<idx.size();k++){
-                ans[idx[k]]=character[k];
+            for(int k=0;k<indices.size();k++){
+                if(vis[indices[k]]!=m)continue;
+                if(freq.find(target[indices[k]])!=freq.end() && freq[target[indices[k]]]>=1){
+                    freq[target[indices[k]]]--;
+                    hamming++;
+                }
             }
             m++;
+
         }
-
-        string a=""; 
-        for(char ch:ans)a+=ch; 
-        return a;
-
+        return n-hamming;
     }
 };
 ```
