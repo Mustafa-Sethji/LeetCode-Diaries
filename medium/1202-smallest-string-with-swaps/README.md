@@ -53,12 +53,13 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.4 MB  
-**Submitted:** 2026-09-01T06:12:00.681Z  
+**Submitted:** 2026-09-01T06:20:28.485Z  
 
 ```cpp
 class Solution {
 public:
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
+        if(pairs.empty())return s;
         sort(pairs.begin(),pairs.end());
         int i=0;
         int n=pairs.size();
