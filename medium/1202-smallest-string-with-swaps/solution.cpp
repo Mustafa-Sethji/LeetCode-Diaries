@@ -3,10 +3,11 @@ public:
     int n;
     int m;
     vector<int>vis;
-    void dfs(unordered_map<int,vector<int>> &graph,int node){
+    void dfs(unordered_map<int,vector<int>> &graph,int node,vector<int>&idx){
         vis[node]=m;
+        idx.push_back(node);
         for(int &x:graph[node]){
-            if(!vis[x])dfs(graph,x);
+            if(!vis[x])dfs(graph,x,idx);
         }
         return;
     }
@@ -24,16 +25,16 @@ public:
         for(int i=0;i<n;i++)ans[i]=s[i];
 
         for(int i=0;i<n;i++){
-            if(!vis[i]) dfs(graph,i);
-            else continue;
             vector<int>idx;
-            for(int k=0;k<n;k++){
-                if(vis[k]==m){idx.push_back(k);}
-            }
+            if(!vis[i]) dfs(graph,i,idx);
+            else continue;
+ 
             vector<char>character;
             for(int x:idx)character.push_back(s[x]);
+
             sort(idx.begin(),idx.end());
             sort(character.begin(),character.end());
+            
             for(int k=0;k<idx.size();k++){
                 ans[idx[k]]=character[k];
             }
