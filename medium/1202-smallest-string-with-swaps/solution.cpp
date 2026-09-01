@@ -1,6 +1,7 @@
 class Solution {
 public:
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
+        if(pairs.empty())return s;
         sort(pairs.begin(),pairs.end());
         int i=0;
         int n=pairs.size();
