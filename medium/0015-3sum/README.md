@@ -45,9 +45,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 56 ms (beats 22.61%)  
+**Runtime:** 51 ms (beats 41.71%)  
 **Memory:** 31 MB (beats 20.34%)  
-**Submitted:** 2026-09-01T05:20:33.268Z  
+**Submitted:** 2026-09-01T05:21:19.288Z  
 
 ```cpp
 class Solution {
@@ -70,7 +70,7 @@ public:
                     j++;
                     k--;
                     while(j<k && nums[j]==nums[j-1])j++;
-                    while(k<k && nums[k]==nums[k+1])k--;
+                    while(j<k && nums[k]==nums[k+1])k--;
                 }
             }
         }
