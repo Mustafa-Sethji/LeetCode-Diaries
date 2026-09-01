@@ -57,11 +57,28 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-01T18:42:58.020Z  
+**Memory:** 8.1 MB  
+**Submitted:** 2026-09-01T18:43:19.939Z  
 
 ```cpp
-1 <= nums.length <= 100
+class Solution {
+public:
+    int countSpecialIntegers(vector<int>& nums) {
+        int prev=-1;
+        int n=nums.size();
+        int ans=0;
+        if(n==1) return 0;
+        for(int i=1;i<n;i++){
+            if(nums[i]==nums[i-1]){
+                if(prev==-1 || nums[i]!=prev){
+                    ans++;
+                    prev=nums[i];
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ---
