@@ -61,28 +61,27 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-02T03:27:24.271Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 30.1 MB (beats 94.95%)  
+**Submitted:** 2026-09-02T03:27:29.308Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    bool uniformArray(vector<int>& nums1) {
-        int cnt_odd=0,cnt_even=0;
-        for(int x:nums1){
-            if((x&1)==1)cnt_odd++;
-            else cnt_even++;
-        }
-    }
+    bool uniformArray(vector<int>& nums1) {
+        int cnt_odd=0,cnt_even=0;
+
+        for(int x:nums1){
+            if((x&1)==1)cnt_odd++;
+            else cnt_even++;
+        }
+        int n=nums1.size();
+        if(n==cnt_odd || n==cnt_even)return true;
+        return true;
 
 
-        int n=nums1.size();
-
-        if(n==cnt_odd || n==cnt_even)return true;
-        return true;
+    }
 };
-
 ```
 
 ---
