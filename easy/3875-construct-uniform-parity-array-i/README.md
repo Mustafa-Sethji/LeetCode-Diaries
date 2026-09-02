@@ -62,24 +62,14 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 30.2 MB (beats 67.80%)  
-**Submitted:** 2026-09-02T03:27:41.429Z  
+**Memory:** 30.3 MB (beats 36.43%)  
+**Submitted:** 2026-09-02T03:31:43.141Z  
 
 ```cpp
 class Solution {
 public:
     bool uniformArray(vector<int>& nums1) {
-        int cnt_odd=0,cnt_even=0;
-
-        for(int x:nums1){
-            if((x&1)==1)cnt_odd++;
-            else cnt_even++;
-        }
-        int n=nums1.size();
-        // if(n==cnt_odd || n==cnt_even)return true;
         return true;
-
-
     }
 };
 ```
