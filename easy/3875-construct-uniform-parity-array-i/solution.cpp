@@ -8,7 +8,7 @@ public:
             else cnt_even++;
         }
         int n=nums1.size();
-        if(n==cnt_odd || n==cnt_even)return true;
+        // if(n==cnt_odd || n==cnt_even)return true;
         return true;
 
 
