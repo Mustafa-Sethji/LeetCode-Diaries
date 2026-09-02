@@ -62,8 +62,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 30.1 MB (beats 94.95%)  
-**Submitted:** 2026-09-02T03:27:29.308Z  
+**Memory:** 30.2 MB (beats 67.80%)  
+**Submitted:** 2026-09-02T03:27:41.429Z  
 
 ```cpp
 class Solution {
@@ -76,7 +76,7 @@ public:
             else cnt_even++;
         }
         int n=nums1.size();
-        if(n==cnt_odd || n==cnt_even)return true;
+        // if(n==cnt_odd || n==cnt_even)return true;
         return true;
 
 
