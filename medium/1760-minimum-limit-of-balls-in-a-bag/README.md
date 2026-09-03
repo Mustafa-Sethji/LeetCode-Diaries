@@ -54,24 +54,22 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms  
-**Memory:** 15.9 MB  
-**Submitted:** 2026-09-03T14:47:11.532Z  
+**Runtime:** 26 ms (beats 85.13%)  
+**Memory:** 59.8 MB (beats 48.43%)  
+**Submitted:** 2026-09-03T14:47:19.042Z  
 
 ```cpp
 class Solution {
 public:
     bool solve(vector<int>&nums,int &op,int mid){
         int k=op;
-        for(int x:nums){
+        for(int &x:nums){
+            int nums=x;
             if(x>mid){
-                while(x>mid){
-                    int p1=x-mid;
-                    int p2=mid;
-                    x=max(p1,p2);
-                    k--;
-                    if(k<0) return false;
-                }
+                int ops=nums/mid;
+                if(nums%mid==0)ops--;
+                k-=ops;
+                if(k<0)return false;
             }
         }
         return true;
