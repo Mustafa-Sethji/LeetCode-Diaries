@@ -2,15 +2,13 @@ class Solution {
 public:
     bool solve(vector<int>&nums,int &op,int mid){
         int k=op;
-        for(int x:nums){
+        for(int &x:nums){
+            int nums=x;
             if(x>mid){
-                while(x>mid){
-                    int p1=x-mid;
-                    int p2=mid;
-                    x=max(p1,p2);
-                    k--;
-                    if(k<0) return false;
-                }
+                int ops=nums/mid;
+                if(nums%mid==0)ops--;
+                k-=ops;
+                if(k<0)return false;
             }
         }
         return true;
