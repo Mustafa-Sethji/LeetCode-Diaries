@@ -16,7 +16,7 @@ public:
 
         return dp[i][j]=(matrix[i][j]-'0')+min(right,min(below,left));
 
-        //if(matrix[i][j] == '0')return dp[i][j] = 0;
+        // if(matrix[i][j] == '0')return dp[i][j] = 0;
 
         if(dp[i][j]!=-1)return dp[i][j];
 
