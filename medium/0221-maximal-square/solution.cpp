@@ -6,9 +6,8 @@ public:
         n=matrix.size();
         m=matrix[0].size();
         dp.assign(n,vector<int>(m,-1));
-        return solve(0,0,matrix);
+        solve(0,0,matrix);
         if(i>=n || j>=m)return 0;
-    }
     }
         int right=solve(i,j+1,matrix);
         int below=solve(i+1,j+1,matrix);
@@ -21,4 +20,12 @@ public:
         if(dp[i][j]!=-1)return dp[i][j];
 
     int n,m;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+        }
+                maxside=max(maxside,dp[i][j]);
+            }
+    }
+        int maxside=INT_MIN;
+        return maxside*maxside;
 };
