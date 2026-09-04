@@ -38,8 +38,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-04T06:11:11.051Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-04T06:11:42.550Z  
 
 ```cpp
 class Solution {
@@ -58,9 +58,9 @@ public:
         int below=solve(i+1,j+1,matrix);
         int left=solve(i+1,j,matrix);
 
-        return dp[i][j]=1+min(right,min(below,left));
+        return dp[i][j]=(matrix[i][j]-'0')+min(right,min(below,left));
 
-        if(matrix[i][j] == '0')return dp[i][j] = 0;
+        //if(matrix[i][j] == '0')return dp[i][j] = 0;
 
         if(dp[i][j]!=-1)return dp[i][j];
 
