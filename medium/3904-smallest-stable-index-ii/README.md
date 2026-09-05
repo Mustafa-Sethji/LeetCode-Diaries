@@ -78,32 +78,31 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-05T14:04:19.118Z  
+**Runtime:** 16 ms (beats 34.38%)  
+**Memory:** 202.5 MB (beats 96.72%)  
+**Submitted:** 2026-09-05T14:04:24.072Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int firstStableIndex(vector<int>& nums, int k) {
-        int n=nums.size();
-    
-        vector<int>mx(n,0);
-        int maxi=INT_MIN;
-        for(int i=0;i<n;i++){
-            maxi=max(maxi,nums[i]);
-        }
-            mx[i]+=maxi;
-        return -1;
-        int mini=INT_MAX;
-            mini=min(mini,nums[n-i-1]);
-            mx[n-i-1]-=mini;
-        for(int i=0;i<n;i++){
-            if(mx[i]<=k)return i;
-        }
-    }
+    int firstStableIndex(vector<int>& nums, int k) {
+        int n=nums.size();
+    
+        vector<int>mx(n,0);
+        int maxi=INT_MIN;
+        int mini=INT_MAX;
+        for(int i=0;i<n;i++){
+            maxi=max(maxi,nums[i]);
+            mini=min(mini,nums[n-i-1]);
+            mx[i]+=maxi;
+            mx[n-i-1]-=mini;
+        }
+        for(int i=0;i<n;i++){
+            if(mx[i]<=k)return i;
+        }
+        return -1;
+    }
 };
-
 ```
 
 ---
