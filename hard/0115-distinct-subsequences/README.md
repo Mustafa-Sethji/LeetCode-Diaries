@@ -42,9 +42,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 31 ms (beats 53.36%)  
-**Memory:** 27.1 MB (beats 52.57%)  
-**Submitted:** 2026-09-06T04:04:25.573Z  
+**Runtime:** 35 ms (beats 34.20%)  
+**Memory:** 27 MB (beats 64.23%)  
+**Submitted:** 2026-09-06T05:06:46.710Z  
 
 ```cpp
 class Solution {
