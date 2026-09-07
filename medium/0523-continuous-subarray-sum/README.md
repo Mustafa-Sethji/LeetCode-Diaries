@@ -55,25 +55,24 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-09-07T16:13:40.885Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-09-07T16:15:23.322Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    bool checkSubarraySum(vector<int>& nums, int k) {
-        unordered_map<int,int>mp;
-        int sum=0;
-        for(int i=0;i<0;i++){
-            sum+=nums[i];
-        }
-    }
-            if(mp.find(sum%k)!=mp.end())return true;
-            else if(sum%k==0) return true;
-            else mp[sum%k]=1;
-        return false;
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        unordered_map<int,int>mp;
+        int sum=0;
+        for(int i=0;i<nums.size();i++){
+            sum+=nums[i];
+            if(mp.find(sum%k)!=mp.end())return true;
+            else if(sum%k==0) return true;
+            else mp[sum%k]=1;
+        }
+        return false;
+    }
 };
-
 ```
 
 ---
