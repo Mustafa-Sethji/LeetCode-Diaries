@@ -41,16 +41,15 @@ Follow up: Can you come up with an algorithm that runs in O(n log(n)) time com
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-08T10:09:10.484Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-09-08T10:10:24.937Z  
 
 ```cpp
-       
     }
     int lengthOfLIS(vector<int>& nums) {
         n=nums.size();
-        //dp.assign(n,vector<int>(n+1,-1));
-        // return solve(0,-1,nums);
+        dp.assign(n,vector<int>(n+1,-1));
+        return solve(0,-1,nums);
 
 
         // vector<int>tabulation_dp(n,1);
@@ -60,12 +59,12 @@ Follow up: Can you come up with an algorithm that runs in O(n log(n)) time com
         //             tabulation_dp[i]=max(tabulation_dp[i],tabulation_dp[j]+1);
         //     }
         // }
-        if(i>=n)return 0;
-    int solve(int i,int prev,vector<int> &nums){
-    vector<vector<int>>dp;
     int n;
-public:
+    int solve(int i,int prev,vector<int> &nums){
+        if(i>=n)return 0;
 class Solution {
+public:
+    vector<vector<int>>dp;
         // return *max_element(tabulation_dp.begin(),tabulation_dp.end());
 
 
@@ -73,10 +72,11 @@ class Solution {
 
         int not_take=0+solve(i+1,prev,nums);
 
-        int take=0;
-        if(prev==-1 ||nums[i]<nums[i+1]) take=1+solve(i+1,i,nums);
+        int take=INT_MIN;
+        if(prev==-1 || nums[i]>nums[prev]) take=1+solve(i+1,i,nums);
 
         return dp[i][prev+1]=max(take,not_take);
+
 
 ```
 
