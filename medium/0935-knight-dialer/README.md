@@ -47,9 +47,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 2 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-08T09:38:02.619Z  
+**Runtime:** 0 ms  
+**Memory:** 8.7 MB  
+**Submitted:** 2026-09-08T09:40:34.506Z  
 
 ```cpp
     int knightDialer(int n) {
@@ -68,22 +68,21 @@ Constraints:
     }
         int ans=0;
         dial[9]={2,4};
-                paths+=solve(x,length-1,dial,vis,dp);
-            if(!vis[x]){
-            }
+            paths+=solve(x,length-1,dial,dp);
         int paths=0;
         for(int x:dial[num]){
         vector<vector<int>>dp(n,vector<int>(10,-1));
         for(int i=0;i<10;i++){
-        if(dp[length][num]!=-1)return dp[length][num];
-            vector<int>vis(10,0);
-            ans+=solve(i,n-1,dial,vis,dp);
+            ans = (ans + solve(i, n - 1, dial, dp)) % MOD;
         }
         return ans;
+            paths %= MOD;
+
+    }
+};
+        if(dp[length][num]!=-1)return dp[length][num];
         if(length==0)return 1;
-        vis[num]=1;
-    vector<vector<int>>&dp){
-    int solve(int num,int length,unordered_map<int,vector<int>>&dial,vector<int>&vis,
+
 
 ```
 
