@@ -55,8 +55,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-07T16:16:13.436Z  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-09-08T05:58:21.692Z  
 
 ```cpp
 class Solution {
@@ -66,7 +66,7 @@ public:
         int sum=0;
         for(int i=0;i<nums.size();i++){
             sum+=nums[i];
-            if(mp.find(sum%k)!=mp.end())return true;
+            if(mp.find(sum%k)!=mp.end() && nums[i]!=0)return true;
             else if(sum%k==0 && sum!=0) return true;
             else mp[sum%k]=1;
         }
