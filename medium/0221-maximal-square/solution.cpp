@@ -13,7 +13,7 @@ public:
         int below=solve(i+1,j+1,matrix);
         int left=solve(i+1,j,matrix);
 
-        return dp[i][j]=1+right+left+below+min(right,min(below,left));
+        return dp[i][j]=1+min(right,min(below,left));
     }
     int maximalSquare(vector<vector<char>>& matrix) {
         n=matrix.size();
