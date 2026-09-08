@@ -39,7 +39,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.5 MB  
-**Submitted:** 2026-09-08T17:47:14.651Z  
+**Submitted:** 2026-09-08T17:48:11.241Z  
 
 ```cpp
 class Solution {
@@ -57,7 +57,7 @@ public:
         int below=solve(i+1,j+1,matrix);
         int left=solve(i+1,j,matrix);
 
-        return dp[i][j]=1+right+left+below+min(right,min(below,left));
+        return dp[i][j]=1+min(right,min(below,left));
     }
     int maximalSquare(vector<vector<char>>& matrix) {
         n=matrix.size();
