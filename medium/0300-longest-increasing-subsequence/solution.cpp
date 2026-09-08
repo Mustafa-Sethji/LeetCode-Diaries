@@ -2,8 +2,8 @@
     }
     int lengthOfLIS(vector<int>& nums) {
         n=nums.size();
-        dp.assign(n,vector<int>(n+1,-1));
-        return solve(0,-1,nums);
+        //dp.assign(n,vector<int>(n+1,-1));
+        // return solve(0,-1,nums);
 
 
         // vector<int>tabulation_dp(n,1);
@@ -25,8 +25,8 @@ class Solution {
         if(dp[i][prev+1]!=-1)return dp[i][prev+1];
 
         int not_take=0+solve(i+1,prev,nums);
-        if(prev==-1 || i<n-1 && nums[i]<nums[i+1]) take=1+solve(i+1,i,nums);
 
-        int take=INT_MIN;
+        int take=0;
+        if(prev==-1 ||nums[i]<nums[i+1]) take=1+solve(i+1,i,nums);
 
         return dp[i][prev+1]=max(take,not_take);
