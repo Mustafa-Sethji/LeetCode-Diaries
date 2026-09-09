@@ -51,8 +51,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.7 MB  
-**Submitted:** 2026-09-09T18:32:09.701Z  
+**Memory:** 8.8 MB  
+**Submitted:** 2026-09-09T18:32:26.735Z  
 
 ```cpp
 class NumMatrix {
@@ -86,6 +86,11 @@ public:
              - prefix[row1-1][col2]
              - prefix[row2][col1-1]
              + prefix[row1-1][col1-1];
+        int ans=prefix[row2][col2];
+        if(row1>0)ans-=prefix[row1-1][col2];
+        if(col1>0)ans-=prefix[row2][col1-1];
+        if(row1>0 && col1>0)ans+=prefix[row1-1][col2-1];
+        return ans;
     }
 };
 ```
