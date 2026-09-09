@@ -52,7 +52,7 @@ Constraints:
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.8 MB  
-**Submitted:** 2026-09-09T18:32:26.735Z  
+**Submitted:** 2026-09-09T18:32:54.818Z  
 
 ```cpp
 class NumMatrix {
