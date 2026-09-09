@@ -1,5 +1,6 @@
 # Write your MySQL query statement below
-select email Email
-FROM Person 
-GROUP BY email
-HAVING COUNT(DISTINCT id)>1
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id=o.customerId
+WHERE o.id IS NULL
