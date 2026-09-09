@@ -70,9 +70,9 @@ Output:
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 99 ms  
+**Runtime:** 118 ms  
 **Memory:** 0B  
-**Submitted:** 2026-09-09T17:10:59.183Z  
+**Submitted:** 2026-09-09T17:12:37.641Z  
 
 ```sql
 # Write your MySQL query statement below
