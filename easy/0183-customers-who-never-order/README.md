@@ -70,16 +70,18 @@ Output:
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 118 ms  
-**Memory:** 0B  
-**Submitted:** 2026-09-09T17:12:37.641Z  
+**Runtime:** 611 ms (beats 57.97%)  
+**Memory:** 0B (beats 100.00%)  
+**Submitted:** 2026-09-09T17:14:08.630Z  
 
 ```sql
 # Write your MySQL query statement below
-select email Email
-FROM Person 
-GROUP BY email
-HAVING COUNT(DISTINCT id)>1
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id=o.customerId
+WHERE o.id IS NULL
+
 ```
 
 ---
