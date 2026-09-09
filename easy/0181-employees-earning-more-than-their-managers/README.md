@@ -50,9 +50,9 @@ Explanation: Joe is the only employee who earns more than his manager.
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 85 ms  
+**Runtime:** 68 ms  
 **Memory:** 0B  
-**Submitted:** 2026-09-09T16:54:26.674Z  
+**Submitted:** 2026-09-09T16:54:40.143Z  
 
 ```sql
 # Write your MySQL query statement below
