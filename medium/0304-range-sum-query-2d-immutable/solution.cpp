@@ -29,5 +29,10 @@ public:
              - prefix[row1-1][col2]
              - prefix[row2][col1-1]
              + prefix[row1-1][col1-1];
+        int ans=prefix[row2][col2];
+        if(row1>0)ans-=prefix[row1-1][col2];
+        if(col1>0)ans-=prefix[row2][col1-1];
+        if(row1>0 && col1>0)ans+=prefix[row1-1][col2-1];
+        return ans;
     }
 };
