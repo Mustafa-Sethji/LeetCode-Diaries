@@ -6,7 +6,7 @@ public:
     bool dfs(vector<vector<int>>&grid,int time,int row,int col,vector<vector<int>>&vis){
         vis[row][col]=1;
         if(row==n-1 && col==n-1)return true;
-        
+
         for(int i=0;i<4;i++){
             int nrow=row+delrow[i];
             int ncol=col+delcol[i];
@@ -18,7 +18,7 @@ public:
     }
     int swimInWater(vector<vector<int>>& grid) {
         n=grid.size();
-        int low=0,high=n*n-1;
+        int low=grid[0][0],high=n*n-1;
         int mid=0;
         while(low<=high){
             mid=low+(high-low)/2;
