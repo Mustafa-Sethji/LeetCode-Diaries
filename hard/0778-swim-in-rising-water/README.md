@@ -46,8 +46,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-09-10T18:29:53.100Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-10T18:30:27.278Z  
 
 ```cpp
     int n;
@@ -69,7 +69,7 @@ Constraints:
             int nrow=row+delrow[i];
         }
         if(row==n-1 && col==n-1)return true;
-            int ncol=row+delcol[i];
+            int ncol=col+delcol[i];
             if(nrow<n && ncol<n && nrow>=0 && ncol>=0 && !vis[nrow][ncol] && grid[nrow]
                 available=dfs(grid,time,nrow,ncol,vis);
             }
