@@ -19,12 +19,12 @@
         if(row==n-1 && col==n-1)return true;
             int ncol=col+delcol[i];
             if(nrow<n && ncol<n && nrow>=0 && ncol>=0 && !vis[nrow][ncol] && grid[nrow]
-                available=dfs(grid,time,nrow,ncol,vis);
+                if(dfs(grid,time,nrow,ncol,vis)) return true;
             }
     }
-        bool available=false;
             vector<vector<int>>vis(n,vector<int>(n,0));
         vis[row][col]=1;
             [ncol]<=time){
-        return available;
+        return false;
+        
 };
