@@ -23,24 +23,29 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-10T04:30:22.271Z  
+**Runtime:** 3 ms (beats 67.74%)  
+**Memory:** 15.5 MB (beats 64.61%)  
+**Submitted:** 2026-09-10T04:30:26.942Z  
 
 ```cpp
 class Solution {
 public:
-    typedef vector <string> vistr;
-    void generate(vistr &vi,int n,string str,int open,int close){
-        if(str.size()==2*n){
-            vi.emplace_back(str);
+    void generate(vector<string>&v,int &n,string s,int open,int close){
+        if(s.size()==2*n){
+            v.emplace_back(s);
             return;
         }
-        if(open<n)generate(vi,n,str+'(',open+1,close);
-        if(close<open)generate(vi,n,str+')',open,close+1);
+        if(open<n)generate(v,n,s+'(',open+1,close);
+        if(close<open)generate(v,n,s+')',open,close+1);
+
+        return;
     }
     vector<string> generateParenthesis(int n) {
-        vistr collect;
+        // vistr collect;
+        // string str="";
+        // generate(collect,n,str,0,0);
+        // return collect;
+        vector<string>collect;
         string str="";
         generate(collect,n,str,0,0);
         return collect;
