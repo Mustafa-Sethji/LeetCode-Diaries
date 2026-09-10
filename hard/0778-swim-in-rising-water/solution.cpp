@@ -17,7 +17,7 @@
             int nrow=row+delrow[i];
         }
         if(row==n-1 && col==n-1)return true;
-            int ncol=row+delcol[i];
+            int ncol=col+delcol[i];
             if(nrow<n && ncol<n && nrow>=0 && ncol>=0 && !vis[nrow][ncol] && grid[nrow]
                 available=dfs(grid,time,nrow,ncol,vis);
             }
