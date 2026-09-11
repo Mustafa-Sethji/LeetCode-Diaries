@@ -57,8 +57,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-11T13:22:31.478Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-11T13:24:00.945Z  
 
 ```cpp
         }
