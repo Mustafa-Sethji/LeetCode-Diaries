@@ -54,41 +54,40 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-09-11T06:58:40.826Z  
+**Runtime:** 5 ms (beats 36.88%)  
+**Memory:** 18.3 MB (beats 47.11%)  
+**Submitted:** 2026-09-11T06:58:46.208Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-        unordered_map<int,vector<pair<int,int>>>mp;
-        for(auto it:flights){
-            mp[it[0]].push_back({it[1],it[2]});
-        }
-        vector<int>dist(n,INT_MAX);
-        queue<pair<int,pair<int,int>>>q;//stops,node,cost
-        q.push({0,{src,0}});
-        while(!q.empty()){
-            int curr_stops=q.front().first;
-            int curr_node=q.front().second.first;
-            int curr_dist=q.front().second.second;
-            q.pop();
-            for(auto it:mp[curr_node]){
-                int node=it.first;
-                int new_dist=it.second+curr_dist;
-                if(curr_stops+1<=k+1 && new_dist<dist[node]){
-                    dist[node]=new_dist;
-                    q.push({curr_stops+1,{node,new_dist}});
-                }
-            }
-        }
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        unordered_map<int,vector<pair<int,int>>>mp;
+        for(auto it:flights){
+            mp[it[0]].push_back({it[1],it[2]});
+        }
+        vector<int>dist(n,INT_MAX);
+        queue<pair<int,pair<int,int>>>q;//stops,node,cost
+        q.push({0,{src,0}});
+        while(!q.empty()){
+            int curr_stops=q.front().first;
+            int curr_node=q.front().second.first;
+            int curr_dist=q.front().second.second;
+            q.pop();
+            for(auto it:mp[curr_node]){
+                int node=it.first;
+                int new_dist=it.second+curr_dist;
+                if(curr_stops+1<=k+1 && new_dist<dist[node]){
+                    dist[node]=new_dist;
+                    q.push({curr_stops+1,{node,new_dist}});
+                }
+            }
+        }
 
-        if(dist[dst]==INT_MAX)return -1;
-        return dist[dst];
-    }
+        if(dist[dst]==INT_MAX)return -1;
+        return dist[dst];
+    }
 };
-
 ```
 
 ---
