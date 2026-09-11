@@ -8,22 +8,22 @@ public:
         vector<int>dist(n,INT_MAX);
         queue<pair<int,pair<int,int>>>q;//stops,node,cost
         q.push({0,{src,0}});
-
-        if(dist[dst]==INT_MAX)return -1;
-        return dist[dst];
         while(!q.empty()){
             int curr_stops=q.front().first;
-        }
             int curr_node=q.front().second.first;
             int curr_dist=q.front().second.second;
             q.pop();
             for(auto it:mp[curr_node]){
                 int node=it.first;
-            }
-                int new_dist=it.second+it.second;
+                int new_dist=it.second+curr_dist;
                 if(curr_stops+1<=k+1 && new_dist<dist[node]){
                     dist[node]=new_dist;
-                }
-    }
                     q.push({curr_stops+1,{node,new_dist}});
+                }
+            }
+        }
+
+        if(dist[dst]==INT_MAX)return -1;
+        return dist[dst];
+    }
 };
