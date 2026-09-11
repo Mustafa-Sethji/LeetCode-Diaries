@@ -7,22 +7,23 @@ public:
         }
         queue<pair<int,int>>q;
         vector<int>dist(n+1,INT_MAX);
-        while(!q.empty()){
         q.push({k,0});
+        while(!q.empty()){
             int node=q.front().first;
-        }
             int time=q.front().second;
             q.pop();
             for(auto it:mp[node]){
                 int curr=it.first;
-            }
                 int new_time=time+it.second;
                 if(curr<n+1 && dist[curr]>new_time){
                     dist[curr]=new_time;
-                }
-    }
                     q.push({curr,new_time});
+                }
+            }
+        }
         int mx=*max_element(dist.begin(),dist.end());
         if(mx==INT_MAX)return -1;
         return mx;
+    }
+        dist[k]=0;
 };
