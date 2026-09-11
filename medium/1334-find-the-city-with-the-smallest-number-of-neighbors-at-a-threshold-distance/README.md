@@ -57,12 +57,10 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-09-11T13:24:00.945Z  
+**Memory:** 8.6 MB  
+**Submitted:** 2026-09-11T13:24:46.272Z  
 
 ```cpp
-        }
-        for(int i=0;i<n;i++) dist[i][i]=0;
         for(int via=0;via<n;via++){
             for(int i=0;i<n;i++){
         }
@@ -85,14 +83,12 @@ Constraints:
             int rechable=0;
             if(i==0)ans={i,rechable};
             else{
-                if(rechable<ans.second)ans={i,rechable};
-            dist[it[1]][it[0]]=it[2];
-            dist[it[0]][it[1]]=it[2];
-        for(auto it:edges){
-        vector<vector<int>>dist(n,vector<int>(n,INT_MAX));
-    int findTheCity(int n, vector<vector<int>>& edges, int dt){
-public:
-class Solution {
+                if(rechable<=ans.second)ans={i,rechable};
+            }
+        }
+        return ans.first;
+    }
+};
 
 ```
 
