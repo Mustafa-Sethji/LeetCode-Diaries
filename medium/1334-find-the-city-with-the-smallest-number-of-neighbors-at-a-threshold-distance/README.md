@@ -56,40 +56,48 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-09-11T13:24:46.272Z  
+**Runtime:** 8 ms (beats 92.87%)  
+**Memory:** 17.5 MB (beats 27.02%)  
+**Submitted:** 2026-09-11T13:24:52.631Z  
 
 ```cpp
-        for(int via=0;via<n;via++){
-            for(int i=0;i<n;i++){
-        }
+class Solution {
+public:
+    int findTheCity(int n, vector<vector<int>>& edges, int dt){
+        vector<vector<int>>dist(n,vector<int>(n,INT_MAX));
+        for(auto it:edges){
+            dist[it[0]][it[1]]=it[2];
+            dist[it[1]][it[0]]=it[2];
+        }
+        for(int i=0;i<n;i++) dist[i][i]=0;
 
-                for(int j=0;j<n;j++){
-            }
-                    if( dist[i][via]!=INT_MAX && 
-                }
-                        dist[via][j]!=INT_MAX &&
-                        dist[i][via]+dist[via][j]<dist[i][j] ){
-                        dist[i][j]=dist[i][via]+dist[via][j];
+        for(int via=0;via<n;via++){
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    if( dist[i][via]!=INT_MAX && 
+                        dist[via][j]!=INT_MAX &&
+                        dist[i][via]+dist[via][j]<dist[i][j] ){
 
-                    }
+                        dist[i][j]=dist[i][via]+dist[via][j];
 
-        pair<int,int>ans={-1,-1};
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(dist[i][j]<=dt)rechable+=1;
-            }
-            int rechable=0;
-            if(i==0)ans={i,rechable};
-            else{
-                if(rechable<=ans.second)ans={i,rechable};
-            }
-        }
-        return ans.first;
-    }
+                    }
+                }
+            }
+        }
+        pair<int,int>ans={-1,-1};
+        for(int i=0;i<n;i++){
+            int rechable=0;
+            for(int j=0;j<n;j++){
+                if(dist[i][j]<=dt)rechable+=1;
+            }
+            if(i==0)ans={i,rechable};
+            else{
+                if(rechable<=ans.second)ans={i,rechable};
+            }
+        }
+        return ans.first;
+    }
 };
-
 ```
 
 ---
