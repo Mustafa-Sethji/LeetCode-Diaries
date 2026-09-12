@@ -54,8 +54,8 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-12T15:59:32.697Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-09-12T16:00:06.189Z  
 
 ```cpp
 class Solution {
@@ -77,7 +77,7 @@ public:
         for(int j=0;j<n;j++){
             if( !vis[j] &&
         }
-                ( stones[i][0]==stones[j][0] || stones[j][1]==stones[j][1] ) ){
+                ( stones[i][0]==stones[j][0] || stones[i][1]==stones[j][1] ) ){
                     dfs(j,stones,vis);
                 }
     }
