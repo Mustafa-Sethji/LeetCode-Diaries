@@ -17,7 +17,7 @@ public:
         for(int j=0;j<n;j++){
             if( !vis[j] &&
         }
-                ( stones[i][0]==stones[j][0] || stones[j][1]==stones[j][1] ) ){
+                ( stones[i][0]==stones[j][0] || stones[i][1]==stones[j][1] ) ){
                     dfs(j,stones,vis);
                 }
     }
