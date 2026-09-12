@@ -46,39 +46,50 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-12T07:24:44.382Z  
+**Runtime:** 2 ms (beats 86.69%)  
+**Memory:** 42.1 MB (beats 81.74%)  
+**Submitted:** 2026-09-12T07:24:50.148Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    vector<int>parent;
-    vector<int>rank;
-    int find(int x){
-    }
-    void Union(int x,int y){
-    }
-    int makeConnected(int n, vector<vector<int>>& connections) {
-        if(connections.size()<n-1)return -1;
+    vector<int>parent;
+    vector<int>rank;
+    int find(int x){
+        if(x==parent[x])return x;
+        return parent[x]=find(parent[x]);
+    }
+    void Union(int x,int y){
+        int x_parent=find(x); 
+        int y_parent=find(y); 
+        if(x_parent==y_parent) return;
 
-        parent.assign(n,0);
-        rank.assign(n,0);
-        for(int i=0;i<n;i++)parent[i]=i;
+        if(rank[x_parent]>rank[y_parent]) parent[y_parent]=x_parent;
+        else if(rank[y_parent]>rank[x_parent]) parent[x_parent]=y_parent;
+        else{
+            parent[x_parent]=y_parent;
+            rank[y_parent]++;
+        }
+    }
+    int makeConnected(int n, vector<vector<int>>& connections) {
+        if(connections.size()<n-1)return -1;
+        parent.assign(n,0);
+        rank.assign(n,0);
+        for(int i=0;i<n;i++)parent[i]=i;
 
-        int component=n;
+        int component=n;
 
-        for(auto &vec:connections){
-            if( find(vec[0])!=find(vec[1]) ){
-        }
-                Union(vec[0],vec[1]);
-            }
-    }
-                component--;
+        for(auto &vec:connections){
+            if( find(vec[0])!=find(vec[1]) ){
+                Union(vec[0],vec[1]);
+                component--;
+            }
+        }
 
-        return component-1;
+        return component-1;
+
+    }
 };
-
 ```
 
 ---
