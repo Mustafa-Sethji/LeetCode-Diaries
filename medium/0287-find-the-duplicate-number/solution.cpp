@@ -10,8 +10,8 @@ public:
             fast=nums[nums[fast]];
             fast=nums[nums[fast]];
         int p=0;
-        do{
-        }while(p!=slow);
+        while(p!=slow){
+        }
     }
             p=nums[nums[p]];
             slow=nums[nums[slow]];
