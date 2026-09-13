@@ -36,9 +36,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 7 ms (beats 23.63%)  
-**Memory:** 32.1 MB (beats 46.59%)  
-**Submitted:** 2026-09-13T11:49:47.401Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 31.8 MB (beats 91.52%)  
+**Submitted:** 2026-09-13T11:50:00.408Z  
 
 ```cpp
 class Solution {
