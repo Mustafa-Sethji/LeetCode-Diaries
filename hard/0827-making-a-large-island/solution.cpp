@@ -17,7 +17,7 @@ public:
     }
     int largestIsland(vector<vector<int>>& grid) {
         n=grid.size();
-        int maxArea=INT_MIN;
+        int maxArea=0;
         vector<vector<bool>>visited(n,vector<bool>(n,false));
         unordered_map<int,int>mp;
         int label=1;
