@@ -36,26 +36,25 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-13T11:49:41.173Z  
+**Runtime:** 7 ms (beats 23.63%)  
+**Memory:** 32.1 MB (beats 46.59%)  
+**Submitted:** 2026-09-13T11:49:47.401Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int numPairsDivisibleBy60(vector<int>& time) {
-        vector<int>freq(60,0);
-        int ans=0;
-        for(int i=0;i<time.size();i++){
-            int rem=time[i]%60;
-        }
-    }
-        return ans;
-            int need=(60-rem)%60;
-            ans+=freq[need];
-            freq[rem]++;
+    int numPairsDivisibleBy60(vector<int>& time) {
+        vector<int>freq(60,0);
+        int ans=0;
+        for(int i=0;i<time.size();i++){
+            int rem=time[i]%60;
+            int need=(60-rem)%60;
+            ans+=freq[need];
+            freq[rem]++;
+        }
+        return ans;
+    }
 };
-
 ```
 
 ---
