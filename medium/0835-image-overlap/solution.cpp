@@ -8,7 +8,7 @@ public:
                 int i_b=i+row_offset;
                 int j_b=j+col_offset;
                 if(i_b<0 || i_b>=n || j_b<0 || j_b>=n) continue;
-                if(img1[i][j]==1 && img2[i_b][i_b]==1)cnt++;
+                if(img1[i][j]==1 && img2[i_b][j_b]==1)cnt++;
             }
         }
         return cnt;
