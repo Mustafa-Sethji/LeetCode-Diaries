@@ -43,9 +43,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 16.5 MB  
-**Submitted:** 2026-09-13T05:07:54.816Z  
+**Runtime:** 87 ms  
+**Memory:** 55.9 MB  
+**Submitted:** 2026-09-13T05:14:20.042Z  
 
 ```cpp
 class Solution {
@@ -67,7 +67,7 @@ public:
     }
     int largestIsland(vector<vector<int>>& grid) {
         n=grid.size();
-        int maxArea=INT_MIN;
+        int maxArea=0;
         vector<vector<bool>>visited(n,vector<bool>(n,false));
         unordered_map<int,int>mp;
         int label=1;
