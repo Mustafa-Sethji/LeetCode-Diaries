@@ -43,9 +43,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 87 ms  
-**Memory:** 55.9 MB  
-**Submitted:** 2026-09-13T05:14:20.042Z  
+**Runtime:** 266 ms (beats 45.13%)  
+**Memory:** 152.2 MB (beats 41.41%)  
+**Submitted:** 2026-09-13T05:14:28.490Z  
 
 ```cpp
 class Solution {
@@ -86,14 +86,14 @@ public:
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(grid[i][j]==0){
-                    vector<int>vis(label,0);
+                    unordered_map<int,int>vis;
                     int area=1;
                     for(auto &dir:directions){
                         int nrow=dir[0]+i;
                         int ncol=dir[1]+j;
                         if(nrow<0 || ncol<0 || nrow>=n || ncol>=n || grid[nrow][ncol]==0)continue;
                         int labl=grid[nrow][ncol];
-                        if( grid[nrow][ncol]!=0 && !vis[labl]){
+                        if( grid[nrow][ncol]!=0 && vis.find(labl)==vis.end()){
                             vis[labl]=1;
                             area+=mp[labl];
                         }
