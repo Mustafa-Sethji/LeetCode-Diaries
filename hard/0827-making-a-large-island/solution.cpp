@@ -36,14 +36,14 @@ public:
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(grid[i][j]==0){
-                    vector<int>vis(label,0);
+                    unordered_map<int,int>vis;
                     int area=1;
                     for(auto &dir:directions){
                         int nrow=dir[0]+i;
                         int ncol=dir[1]+j;
                         if(nrow<0 || ncol<0 || nrow>=n || ncol>=n || grid[nrow][ncol]==0)continue;
                         int labl=grid[nrow][ncol];
-                        if( grid[nrow][ncol]!=0 && !vis[labl]){
+                        if( grid[nrow][ncol]!=0 && vis.find(labl)==vis.end()){
                             vis[labl]=1;
                             area+=mp[labl];
                         }
