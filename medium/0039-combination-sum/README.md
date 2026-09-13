@@ -46,34 +46,34 @@ Constraints:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-13T13:07:26.101Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-13T13:10:52.828Z  
 
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        return ans;
     vector<vector<int>>ans;
-        vector<int>temp;
-        solve(0,temp,target,candidates);
+    int n;
     void solve(int i,vector<int>&temp,int sum,vector<int>&nums){
         if(i>=n)return;
-    }
-    int n;
-        n=candidates.size();
         if(sum==0){
             ans.push_back(temp);
-        }
             return;
-        if(nums[i]>sum)return;
-        else{
-            temp.emplace_back(nums[i]);
         }
-    }
+        if(nums[i]>sum)return;
+        else if(nums[i]<sum){
+            temp.emplace_back(nums[i]);
             solve(i,temp,sum-nums[i],nums);
             temp.pop_back();
-        return;
+        }
+        solve(i+1,temp,sum,nums);
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        n=candidates.size();
+        vector<int>temp;
+        solve(0,temp,target,candidates);
+        return ans;
+    }
 };
 
 ```
