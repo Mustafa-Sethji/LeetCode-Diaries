@@ -38,46 +38,42 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 22 ms (beats 60.01%)  
-**Memory:** 17.6 MB (beats 12.48%)  
-**Submitted:** 2026-09-01T06:01:19.576Z  
+**Runtime:** 0 ms  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-09-13T12:06:06.522Z  
 
 ```cpp
-class Solution {
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+       vector<vector<int>>ans;
+       int n=nums.size();
+       for(int i=0;i<n;i++){
+            if(i>0 && nums[i]==nums[i-1])continue;
+            for(int j=i+1;j<n;j++){
+                if(j>i+1 && nums[j]==nums[j-1])continue;
+                int k=j+1;
+            }
+        }
+class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        sort(nums.begin(),nums.end());
-        vector<vector<int>>ans;
-        int n=nums.size();
-        for(int i=0;i<n;i++){
-            if(i>0 && nums[i]==nums[i-1])continue;
-            for(int j=i+1;j<n;j++){
-                if(j>i+1 && nums[j]==nums[j-1])continue;
-                int k=j+1;
-                int l=n-1;
-                while(k<l){
-                    long long sum =
-                        1LL * nums[i] +
-                        nums[j] +
-                        nums[k] +
-                        nums[l];
-                        
-                    if(sum<target)k++;
-                    else if(sum>target)l--;
-                    else{
-                        vector<int>temp={nums[i],nums[j],nums[k],nums[l]};
-                        ans.emplace_back(temp);
-                        k++;
-                        l--;
-                        while(k<l && nums[k]==nums[k-1])k++;
-                        while(k<l && nums[l]==nums[l+1])l--;
-                    }
-                }
-            }
-        }
-        return ans;
-    }
+                int l=n-1;
+                while(k<l){
+                    long long sum=
+                }
+                                1LL * nums[i]+nums[j]+nums[k]+nums[l];
+                    if(sum<target)k++;
+                    else if(sum>target)l--;
+                    else{
+                        ans.push_back({nums[i],nums[j],nums[k],nums[l]});
+                    }
+    }
+                        k++;
+                        l--;
+                        while(k<l && nums[k]==nums[k-1])k++;
+                        while(k<l && nums[l]==nums[l+1])l--;
+        return ans;
 };
+
 ```
 
 ---
