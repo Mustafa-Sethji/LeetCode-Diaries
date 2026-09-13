@@ -45,9 +45,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-09-13T13:14:09.689Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 14.4 MB (beats 38.97%)  
+**Submitted:** 2026-09-13T13:14:17.864Z  
 
 ```cpp
 class Solution {
@@ -61,14 +61,15 @@ public:
             return;
         }
         if(nums[i]>sum)return;
-        else if(nums[i]<=sum){
-            temp.emplace_back(nums[i]);
-            solve(i,temp,sum-nums[i],nums);
-            temp.pop_back();
-        }
+
+        temp.emplace_back(nums[i]);
+        solve(i,temp,sum-nums[i],nums);
+        temp.pop_back();
+        
         solve(i+1,temp,sum,nums);
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        sort(candidates.begin(),candidates.end());
         n=candidates.size();
         vector<int>temp;
         solve(0,temp,target,candidates);
