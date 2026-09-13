@@ -48,9 +48,9 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-09-13T06:02:53.652Z  
+**Runtime:** 44 ms (beats 74.22%)  
+**Memory:** 13.1 MB (beats 55.83%)  
+**Submitted:** 2026-09-13T06:02:58.626Z  
 
 ```cpp
 class Solution {
@@ -63,7 +63,7 @@ public:
                 int i_b=i+row_offset;
                 int j_b=j+col_offset;
                 if(i_b<0 || i_b>=n || j_b<0 || j_b>=n) continue;
-                if(img1[i][j]==1 && img2[i_b][i_b]==1)cnt++;
+                if(img1[i][j]==1 && img2[i_b][j_b]==1)cnt++;
             }
         }
         return cnt;
