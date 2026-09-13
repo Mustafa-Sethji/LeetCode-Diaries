@@ -49,15 +49,15 @@ Follow up:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-13T13:00:37.234Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-09-13T13:00:17.499Z  
 
 ```cpp
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int slow=0;
-        return p;
+        return nums[p];
         int fast=0;
         do{
             slow=nums[slow];
