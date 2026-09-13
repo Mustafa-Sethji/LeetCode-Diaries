@@ -48,29 +48,28 @@ Follow up:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-13T13:00:17.499Z  
+**Runtime:** 4 ms (beats 60.84%)  
+**Memory:** 65.1 MB (beats 69.78%)  
+**Submitted:** 2026-09-13T13:01:22.390Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int findDuplicate(vector<int>& nums) {
-        int slow=0;
-        return nums[p];
-        int fast=0;
-        do{
-            slow=nums[slow];
-        }while(slow!=fast);
-            fast=nums[nums[fast]];;
-        int p=0;
-        while(p!=slow){
-        }
-    }
-            p=nums[p];
-            slow=nums[slow];
+    int findDuplicate(vector<int>& nums) {
+        int slow=0;
+        int fast=0;
+        do{
+            slow=nums[slow];
+            fast=nums[nums[fast]];;
+        }while(slow!=fast);
+        int p=0;
+        while(p!=slow){
+            p=nums[p];
+            slow=nums[slow];
+        }
+        return p;
+    }
 };
-
 ```
 
 ---
