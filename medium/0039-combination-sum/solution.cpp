@@ -9,14 +9,15 @@ public:
             return;
         }
         if(nums[i]>sum)return;
-        else if(nums[i]<=sum){
-            temp.emplace_back(nums[i]);
-            solve(i,temp,sum-nums[i],nums);
-            temp.pop_back();
-        }
+
+        temp.emplace_back(nums[i]);
+        solve(i,temp,sum-nums[i],nums);
+        temp.pop_back();
+        
         solve(i+1,temp,sum,nums);
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        sort(candidates.begin(),candidates.end());
         n=candidates.size();
         vector<int>temp;
         solve(0,temp,target,candidates);
