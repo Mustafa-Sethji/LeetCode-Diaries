@@ -49,8 +49,8 @@ Follow up:
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-09-13T12:57:56.939Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-09-13T12:59:17.485Z  
 
 ```cpp
 class Solution {
@@ -65,8 +65,8 @@ public:
             fast=nums[nums[fast]];
             fast=nums[nums[fast]];
         int p=0;
-        do{
-        }while(p!=slow);
+        while(p!=slow){
+        }
     }
             p=nums[nums[p]];
             slow=nums[nums[slow]];
