@@ -40,28 +40,27 @@ Constraints:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-09-13T17:55:20.787Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 20.7 MB (beats 53.82%)  
+**Submitted:** 2026-09-13T17:55:26.112Z  
 
 ```cpp
-class Solution {
+class Solution {
 public:
-    int jump(vector<int>& nums) {
-        int n=nums.size();
-        int farthest=0,current=0,jumps=0;
-        for(int i=0;i<n-1;i++){
-            farthest=max(farthest,nums[i]+i);
-        }
-            if(i==current){
-                current=farthest;
-            }
-    }
-                jumps++;
+    int jump(vector<int>& nums) {
+        int n=nums.size();
+        int farthest=0,current=0,jumps=0;
+        for(int i=0;i<n-1;i++){
+            farthest=max(farthest,nums[i]+i);
+            if(i==current){
+                current=farthest;
+                jumps++;
+            }
 
-        return jumps;
+        }
+        return jumps;
+    }
 };
-
 ```
 
 ---
