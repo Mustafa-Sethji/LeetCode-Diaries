@@ -39,8 +39,8 @@ Explanation: The node with value 7 isn't as far left as possible.
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 13.8 MB (beats 32.65%)  
-**Submitted:** 2026-09-18T11:44:53.268Z  
+**Memory:** 13.5 MB (beats 95.29%)  
+**Submitted:** 2026-09-18T11:46:15.132Z  
 
 ```cpp
 /**
@@ -62,28 +62,29 @@ public:
     }
     bool dfs(TreeNode*root,int i,int n){
         if(root==NULL)return true;
+        if(i>n)return false;
         return ( dfs(root->left,2*i,n) && dfs(root->right,2*i+1,n) );
     }
     bool isCompleteTree(TreeNode* root) {
-        queue<TreeNode*>q;
-        if(root==NULL)return true;
-        q.push(root);
-        bool past=false;
-        while(!q.empty()){
-            TreeNode* node=q.front();
-            q.pop();
-            if(node==NULL) past=true;
-            else{
-                if(past) return false;
-                q.push(node->left);
-                q.push(node->right);
-            }
-        }
-        return true;
+        // queue<TreeNode*>q;
+        // if(root==NULL)return true;
+        // q.push(root);
+        // bool past=false;
+        // while(!q.empty()){
+        //     TreeNode* node=q.front();
+        //     q.pop();
+        //     if(node==NULL) past=true;
+        //     else{
+        //         if(past) return false;
+        //         q.push(node->left);
+        //         q.push(node->right);
+        //     }
+        // }
+        // return true;
 
         //dfs
-        // int total_node=count(root);
-        // return dfs(root,1,total_node);
+        int total_node=count(root);
+        return dfs(root,1,total_node);
     }
 };
 ```
