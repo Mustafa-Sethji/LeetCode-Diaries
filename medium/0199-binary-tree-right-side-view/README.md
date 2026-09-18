@@ -47,8 +47,8 @@ Given the `root` of a binary tree, imagine yourself standing on the **right side
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 15.3 MB (beats 13.63%)  
-**Submitted:** 2026-09-18T09:20:16.028Z  
+**Memory:** 14.9 MB (beats 85.47%)  
+**Submitted:** 2026-09-18T09:20:52.439Z  
 
 ```cpp
 /**
@@ -85,32 +85,32 @@ public:
         if(root->left)traverse_left_inner_boundry(root->left,ans,curr_lvl+1);
     }
     vector<int> rightSideView(TreeNode* root) {
-        // vector<int>ans;
-        // if(root==NULL)return ans;
-        // int level=1;
-        // ans.emplace_back(root->val);
-        // traverse_right_boundry(root->right,ans,1);
-        // traverse_left_inner_boundry(root->left,ans,1);
-        // return ans;
-
-        // level order traversal;
-
-        if(root==NULL)return {};
-        queue<TreeNode*>q;
         vector<int>ans;
-        q.push(root);
-        TreeNode* Node;
-        while(!q.empty()){
-            int n=q.size();
-            while(n--){
-                Node=q.front();
-                q.pop();
-                if(Node->left!=NULL)q.push(Node->left);
-                if(Node->right!=NULL)q.push(Node->right);
-            }
-            ans.push_back(Node->val);
-        }
+        if(root==NULL)return ans;
+        int level=1;
+        ans.emplace_back(root->val);
+        traverse_right_boundry(root->right,ans,1);
+        traverse_left_inner_boundry(root->left,ans,1);
         return ans;
+
+        //level order traversal;
+
+        // if(root==NULL)return {};
+        // queue<TreeNode*>q;
+        // vector<int>ans;
+        // q.push(root);
+        // TreeNode* Node;
+        // while(!q.empty()){
+        //     int n=q.size();
+        //     while(n--){
+        //         Node=q.front();
+        //         q.pop();
+        //         if(Node->left!=NULL)q.push(Node->left);
+        //         if(Node->right!=NULL)q.push(Node->right);
+        //     }
+        //     ans.push_back(Node->val);
+        // }
+        // return ans;
     }
 };
 ```
