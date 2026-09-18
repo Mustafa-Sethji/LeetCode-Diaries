@@ -47,8 +47,8 @@ Given the `root` of a binary tree, imagine yourself standing on the **right side
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 15.1 MB (beats 40.32%)  
-**Submitted:** 2026-09-18T09:21:21.639Z  
+**Memory:** 14.9 MB (beats 63.63%)  
+**Submitted:** 2026-09-18T09:33:48.990Z  
 
 ```cpp
 /**
@@ -86,6 +86,19 @@ public:
     // }
 
 
+    void preOrder(TreeNode* root,int level,vector<int>&result){
+        if(root==NULL)return;
+
+        if(result.size()<level){
+            result.push_back(root->val);
+        }
+
+        preOrder(root->right,level+1,result);
+        preOrder(root->left,level+1,result);
+        return;
+    }
+
+
     vector<int> rightSideView(TreeNode* root) {
         // vector<int>ans;
         // if(root==NULL)return ans;
@@ -97,22 +110,27 @@ public:
 
         //level order traversal;
 
-        if(root==NULL)return {};
-        queue<TreeNode*>q;
-        vector<int>ans;
-        q.push(root);
-        TreeNode* Node;
-        while(!q.empty()){
-            int n=q.size();
-            while(n--){
-                Node=q.front();
-                q.pop();
-                if(Node->left!=NULL)q.push(Node->left);
-                if(Node->right!=NULL)q.push(Node->right);
-            }
-            ans.push_back(Node->val);
-        }
-        return ans;
+        // if(root==NULL)return {};
+        // queue<TreeNode*>q;
+        // vector<int>ans;
+        // q.push(root);
+        // TreeNode* Node;
+        // while(!q.empty()){
+        //     int n=q.size();
+        //     while(n--){
+        //         Node=q.front();
+        //         q.pop();
+        //         if(Node->left!=NULL)q.push(Node->left);
+        //         if(Node->right!=NULL)q.push(Node->right);
+        //     }
+        //     ans.push_back(Node->val);
+        // }
+        // return ans;
+
+        // using pre order traveersal 
+        vector<int>result;
+        preOrder(root,1,result);
+        return result;
     }
 };
 ```
