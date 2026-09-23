@@ -47,9 +47,9 @@ Explanation: The optimal solution is to remove the last three elements and the f
 ## Solution
 
 **Language:** C++  
-**Runtime:** 224 ms (beats 9.06%)  
-**Memory:** 172.1 MB (beats 9.65%)  
-**Submitted:** 2026-09-23T17:15:47.763Z  
+**Runtime:** 221 ms (beats 10.02%)  
+**Memory:** 172.2 MB (beats 7.59%)  
+**Submitted:** 2026-09-23T17:16:12.217Z  
 
 ```cpp
 class Solution {
