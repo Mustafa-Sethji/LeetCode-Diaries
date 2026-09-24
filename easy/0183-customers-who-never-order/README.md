@@ -4,8 +4,9 @@
 
 ## Problem
 
-Table: Customers
+Table: `Customers`
 
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -15,11 +16,13 @@ Table: Customers
 id is the primary key (column with unique values) for this table.
 Each row of this table indicates the ID and name of a customer.
 
+```
 
  
 
-Table: Orders
+Table: `Orders`
 
+```
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
@@ -30,18 +33,21 @@ id is the primary key (column with unique values) for this table.
 customerId is a foreign key (reference columns) of the ID from the Customers table.
 Each row of this table indicates the ID of an order and the ID of the customer who ordered it.
 
+```
 
  
 
 Write a solution to find all customers who never order anything.
 
-Return the result table in any order.
+Return the result table in **any order**.
 
 The result format is in the following example.
 
  
-Example 1:
 
+**Example 1:**
+
+```
 Input: 
 Customers table:
 +----+-------+
@@ -67,19 +73,23 @@ Output:
 | Max       |
 +-----------+
 
+```
+
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 107 ms  
-**Memory:** 0B  
-**Submitted:** 2026-09-09T17:13:14.133Z  
+**Runtime:** 635 ms (beats 49.04%)  
+**Memory:** 0B (beats 100.00%)  
+**Submitted:** 2026-09-24T07:56:33.100Z  
 
 ```sql
 # Write your MySQL query statement below
-select email Email
-FROM Person 
-GROUP BY email
-HAVING COUNT(DISTINCT id)>1
+SELECT c.name as Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id=o.customerId
+WHERE o.customerId IS NULL;
+
 ```
 
 ---
