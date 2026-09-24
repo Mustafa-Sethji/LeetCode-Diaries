@@ -4,8 +4,9 @@
 
 ## Problem
 
-Table: Person
+Table: `Person`
 
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -15,18 +16,21 @@ Table: Person
 id is the primary key (column with unique values) for this table.
 Each row of this table contains an email. The emails will not contain uppercase letters.
 
+```
 
  
 
 Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
 
-Return the result table in any order.
+Return the result table in **any order**.
 
 The result format is in the following example.
 
  
-Example 1:
 
+**Example 1:**
+
+```
 Input: 
 Person table:
 +----+---------+
@@ -44,19 +48,21 @@ Output:
 +---------+
 Explanation: a@b.com is repeated two times.
 
+```
+
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 638 ms (beats 6.46%)  
+**Runtime:** 388 ms (beats 78.02%)  
 **Memory:** 0B (beats 100.00%)  
-**Submitted:** 2026-09-09T17:00:49.338Z  
+**Submitted:** 2026-09-24T07:48:15.230Z  
 
 ```sql
 # Write your MySQL query statement below
-select email Email
-FROM Person 
+SELECT email
+FROM Person
 GROUP BY email
-HAVING COUNT(DISTINCT id)>1
+HAVING COUNT(distinct id)>1;
 ```
 
 ---
