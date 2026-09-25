@@ -42,7 +42,7 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
 **Memory:** 27.9 MB (beats 77.29%)  
-**Submitted:** 2026-09-25T10:22:24.511Z  
+**Submitted:** 2026-09-25T11:25:03.281Z  
 
 ```cpp
 /**
@@ -58,26 +58,42 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
  */
 class Solution {
 public:
-    vector<int>maxi_sum;
+    // vector<int>maxi_sum;
+    // int maxi=INT_MIN;
+    // int single_maxi=INT_MIN;
+    // int func(TreeNode* root){
+    //     if(root==NULL)return 0;
+    //     if(root->left==NULL && root->right==NULL) {
+    //         maxi=max(root->val,maxi);
+    //         return root->val;
+    //     }
+    //     int lh=func(root->left);
+    //     int rh=func(root->right);
+    //     maxi=max(maxi,max(root->val+lh,max(root->val+rh,root->val)));
+    //     if(root->left!=NULL && root->right!=NULL)single_maxi=max(single_maxi,root->val+lh+rh);
+    //     int mossi=max(root->val+lh,max(root->val+rh,root->val));
+    //     return mossi;
+    // }
+
     int maxi=INT_MIN;
-    int single_maxi=INT_MIN;
-    int func(TreeNode* root){
-        if(root==NULL)return 0;
-        if(root->left==NULL && root->right==NULL) {
-            maxi=max(root->val,maxi);
-            return root->val;
-        }
-        int lh=func(root->left);
-        int rh=func(root->right);
-        maxi=max(maxi,max(root->val+lh,max(root->val+rh,root->val)));
-        if(root->left!=NULL && root->right!=NULL)single_maxi=max(single_maxi,root->val+lh+rh);
-        int mossi=max(root->val+lh,max(root->val+rh,root->val));
-        return mossi;
+    int solve(TreeNode* root){
+        if(!root)return 0;
+
+        int L=max(0,solve(root->left));
+        int R=max(0,solve(root->right));
+
+        //path passing thorugh current node
+        int through_node=root->val+L+R;
+
+        //update global maximum
+        maxi=max(maxi,through_node);
+
+        // Return only one side to parent
+        return root->val+max(L,R);
     }
     int maxPathSum(TreeNode* root) {
-        int h=func(root);
-        maxi=max(single_maxi,maxi);
-        return max(maxi,h);
+        int returned_max=solve(root);
+        return max(returned_max,maxi);
     }
 };
 
