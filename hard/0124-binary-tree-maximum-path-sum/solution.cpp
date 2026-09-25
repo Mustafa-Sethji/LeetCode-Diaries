@@ -11,26 +11,42 @@
  */
 class Solution {
 public:
-    vector<int>maxi_sum;
+    // vector<int>maxi_sum;
+    // int maxi=INT_MIN;
+    // int single_maxi=INT_MIN;
+    // int func(TreeNode* root){
+    //     if(root==NULL)return 0;
+    //     if(root->left==NULL && root->right==NULL) {
+    //         maxi=max(root->val,maxi);
+    //         return root->val;
+    //     }
+    //     int lh=func(root->left);
+    //     int rh=func(root->right);
+    //     maxi=max(maxi,max(root->val+lh,max(root->val+rh,root->val)));
+    //     if(root->left!=NULL && root->right!=NULL)single_maxi=max(single_maxi,root->val+lh+rh);
+    //     int mossi=max(root->val+lh,max(root->val+rh,root->val));
+    //     return mossi;
+    // }
+
     int maxi=INT_MIN;
-    int single_maxi=INT_MIN;
-    int func(TreeNode* root){
-        if(root==NULL)return 0;
-        if(root->left==NULL && root->right==NULL) {
-            maxi=max(root->val,maxi);
-            return root->val;
-        }
-        int lh=func(root->left);
-        int rh=func(root->right);
-        maxi=max(maxi,max(root->val+lh,max(root->val+rh,root->val)));
-        if(root->left!=NULL && root->right!=NULL)single_maxi=max(single_maxi,root->val+lh+rh);
-        int mossi=max(root->val+lh,max(root->val+rh,root->val));
-        return mossi;
+    int solve(TreeNode* root){
+        if(!root)return 0;
+
+        int L=max(0,solve(root->left));
+        int R=max(0,solve(root->right));
+
+        //path passing thorugh current node
+        int through_node=root->val+L+R;
+
+        //update global maximum
+        maxi=max(maxi,through_node);
+
+        // Return only one side to parent
+        return root->val+max(L,R);
     }
     int maxPathSum(TreeNode* root) {
-        int h=func(root);
-        maxi=max(single_maxi,maxi);
-        return max(maxi,h);
+        int returned_max=solve(root);
+        return max(returned_max,maxi);
     }
 };
 
