@@ -48,9 +48,9 @@ Explanation: Root is considered as good.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 118 ms (beats 5.86%)  
-**Memory:** 88.5 MB (beats 29.70%)  
-**Submitted:** 2026-09-26T11:20:34.887Z  
+**Runtime:** 98 ms (beats 56.57%)  
+**Memory:** 88.5 MB (beats 8.85%)  
+**Submitted:** 2026-09-26T11:21:03.318Z  
 
 ```cpp
 /**
